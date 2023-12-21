@@ -1,0 +1,1077 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Aug 21 00:02:22 2023
+# Process ID: 8124
+# Current directory: E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1
+# Command line: vivado.exe -log thinpad_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source thinpad_top.tcl
+# Log file: E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/thinpad_top.vds
+# Journal file: E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source thinpad_top.tcl -notrace
+Command: synth_design -top thinpad_top -part xc7a200tfbg676-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 12784 
+WARNING: [Synth 8-6901] identifier 'related_delay' is used before its declaration [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:103]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 909.555 ; gain = 242.723
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'thinpad_top' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:3]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:34]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:60]
+INFO: [Synth 8-6157] synthesizing module 'pll_example' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/realtime/pll_example_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'pll_example' (1#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/realtime/pll_example_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'SEG7_LUT' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/SEG7_LUT.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SEG7_LUT' (2#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/SEG7_LUT.v:1]
+INFO: [Synth 8-6157] synthesizing module 'trymips' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/trymips.v:3]
+INFO: [Synth 8-6157] synthesizing module 'pc_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/pc_reg.v:3]
+WARNING: [Synth 8-6014] Unused sequential element ce_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/pc_reg.v:118]
+WARNING: [Synth 8-6014] Unused sequential element stall_delay_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/pc_reg.v:152]
+WARNING: [Synth 8-6014] Unused sequential element baseram_finish_delay_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/pc_reg.v:153]
+WARNING: [Synth 8-6014] Unused sequential element stall_delay2_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/pc_reg.v:154]
+INFO: [Synth 8-6155] done synthesizing module 'pc_reg' (3#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/pc_reg.v:3]
+INFO: [Synth 8-6157] synthesizing module 'if_id' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:3]
+WARNING: [Synth 8-6014] Unused sequential element id_inst_delay1_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:139]
+WARNING: [Synth 8-6014] Unused sequential element id_pc_delay1_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:140]
+WARNING: [Synth 8-6014] Unused sequential element delaysignal_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:162]
+WARNING: [Synth 8-6014] Unused sequential element sdelaysignal_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:171]
+WARNING: [Synth 8-6014] Unused sequential element delaysignal_bubble_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:190]
+WARNING: [Synth 8-6014] Unused sequential element delaysignal_use_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:191]
+WARNING: [Synth 8-6014] Unused sequential element sdelaysignal_bubble_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:192]
+WARNING: [Synth 8-6014] Unused sequential element store_baseram_delay_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:193]
+WARNING: [Synth 8-6014] Unused sequential element sdelaysignal_use_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:194]
+WARNING: [Synth 8-6014] Unused sequential element pre_is_store_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:195]
+WARNING: [Synth 8-6014] Unused sequential element pre_is_load_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:196]
+WARNING: [Synth 8-6014] Unused sequential element signal_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:197]
+WARNING: [Synth 8-6014] Unused sequential element bingo_delay_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:200]
+WARNING: [Synth 8-6014] Unused sequential element bingo_delay2_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:201]
+WARNING: [Synth 8-6014] Unused sequential element exe_ls_delay_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:204]
+WARNING: [Synth 8-6014] Unused sequential element baseram_finish_delay_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:207]
+WARNING: [Synth 8-6014] Unused sequential element continuedelay_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:208]
+WARNING: [Synth 8-6014] Unused sequential element cnt_branch_o_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:248]
+WARNING: [Synth 8-6014] Unused sequential element cnt_branch_r_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:249]
+INFO: [Synth 8-6155] done synthesizing module 'if_id' (4#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:3]
+INFO: [Synth 8-6157] synthesizing module 'id' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:3]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:45]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:47]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:48]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:747]
+INFO: [Synth 8-6155] done synthesizing module 'id' (5#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mult_gen_0' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/realtime/mult_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'mult_gen_0' (6#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/realtime/mult_gen_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:3]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:17]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:21]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:25]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:26]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:27]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:28]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:29]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:30]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:31]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:32]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:33]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:34]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:35]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:36]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:37]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:38]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:39]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:40]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:41]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:42]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:43]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:44]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:45]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:46]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:47]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:48]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:49]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:50]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:51]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:52]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:53]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:54]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:55]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (7#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v:3]
+INFO: [Synth 8-6157] synthesizing module 'id_ex' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id_ex.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'id_ex' (8#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id_ex.v:3]
+INFO: [Synth 8-6157] synthesizing module 'bbb' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:3]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:64]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:65]
+WARNING: [Synth 8-3848] Net stallreq in module/entity bbb does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:47]
+INFO: [Synth 8-6155] done synthesizing module 'bbb' (9#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:3]
+WARNING: [Synth 8-7023] instance 'bbb0' of module 'bbb' has 53 connections declared, but only 52 given [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/trymips.v:512]
+INFO: [Synth 8-6157] synthesizing module 'bbb_ex' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb_ex.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'bbb_ex' (10#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb_ex.v:3]
+WARNING: [Synth 8-7023] instance 'bbb_ex0' of module 'bbb_ex' has 24 connections declared, but only 23 given [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/trymips.v:582]
+INFO: [Synth 8-6157] synthesizing module 'ex' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ex.v:3]
+INFO: [Synth 8-226] default block is never used [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ex.v:247]
+INFO: [Synth 8-226] default block is never used [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ex.v:283]
+INFO: [Synth 8-6155] done synthesizing module 'ex' (11#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ex.v:3]
+INFO: [Synth 8-6157] synthesizing module 'ex_mem' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ex_mem.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'ex_mem' (12#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ex_mem.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mem' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/mem.v:3]
+INFO: [Synth 8-226] default block is never used [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/mem.v:176]
+INFO: [Synth 8-226] default block is never used [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/mem.v:214]
+INFO: [Synth 8-6155] done synthesizing module 'mem' (13#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/mem.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mem_wb' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/mem_wb.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'mem_wb' (14#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/mem_wb.v:3]
+INFO: [Synth 8-6157] synthesizing module 'ctrl' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ctrl.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'ctrl' (15#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ctrl.v:3]
+WARNING: [Synth 8-3848] Net id_link_address_o in module/entity trymips does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/trymips.v:77]
+INFO: [Synth 8-6155] done synthesizing module 'trymips' (16#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/trymips.v:3]
+INFO: [Synth 8-6157] synthesizing module 'sram_ctrl_double_try' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:20]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:33]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:34]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:35]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:36]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:37]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:38]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:41]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:42]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:43]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:44]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:45]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:46]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:49]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:50]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:51]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:52]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:53]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:54]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:55]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:56]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:61]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:62]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:63]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:64]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:65]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:66]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:71]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:72]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:76]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:77]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:78]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:80]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:81]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:82]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:83]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:84]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:85]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:86]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:87]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:88]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:89]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:90]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:91]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:92]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:93]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:94]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:95]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:96]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:97]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:98]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:115]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:286]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:287]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:362]
+INFO: [Synth 8-226] default block is never used [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:235]
+INFO: [Synth 8-6157] synthesizing module 'async_receiver' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:75]
+	Parameter ClkFrequency bound to: 100000000 - type: integer 
+	Parameter Baud bound to: 9600 - type: integer 
+	Parameter Oversampling bound to: 8 - type: integer 
+	Parameter l2o bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'BaudTickGen' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:191]
+	Parameter ClkFrequency bound to: 100000000 - type: integer 
+	Parameter Baud bound to: 9600 - type: integer 
+	Parameter Oversampling bound to: 8 - type: integer 
+	Parameter AccWidth bound to: 22 - type: integer 
+	Parameter ShiftLimiter bound to: 8 - type: integer 
+	Parameter Inc bound to: 3221 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'BaudTickGen' (17#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:191]
+WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:176]
+WARNING: [Synth 8-6014] Unused sequential element RxD_endofpacket_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:178]
+INFO: [Synth 8-6155] done synthesizing module 'async_receiver' (18#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:75]
+INFO: [Synth 8-6157] synthesizing module 'async_transmitter' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:14]
+	Parameter ClkFrequency bound to: 100000000 - type: integer 
+	Parameter Baud bound to: 9600 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'BaudTickGen__parameterized0' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:191]
+	Parameter ClkFrequency bound to: 100000000 - type: integer 
+	Parameter Baud bound to: 9600 - type: integer 
+	Parameter Oversampling bound to: 1 - type: integer 
+	Parameter AccWidth bound to: 22 - type: integer 
+	Parameter ShiftLimiter bound to: 5 - type: integer 
+	Parameter Inc bound to: 403 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'BaudTickGen__parameterized0' (18#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:191]
+INFO: [Synth 8-6155] done synthesizing module 'async_transmitter' (19#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v:14]
+INFO: [Synth 8-6157] synthesizing module 'fifo_generator_0' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_generator_0' (20#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/realtime/fifo_generator_0_stub.v:6]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ext_uart_t'. This will prevent further optimization [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:299]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ext_uart_r'. This will prevent further optimization [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:290]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'read'. This will prevent further optimization [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:316]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'trance'. This will prevent further optimization [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:337]
+WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:207]
+WARNING: [Synth 8-6014] Unused sequential element load_baseram_delay_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:208]
+WARNING: [Synth 8-6014] Unused sequential element load_extram_delay_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:209]
+WARNING: [Synth 8-6014] Unused sequential element load_baseram_delay_use_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:210]
+WARNING: [Synth 8-6014] Unused sequential element load_extram_delay_use_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:211]
+WARNING: [Synth 8-6014] Unused sequential element sbaseram_buffer_reg was removed.  [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:212]
+INFO: [Synth 8-6155] done synthesizing module 'sram_ctrl_double_try' (21#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:20]
+INFO: [Synth 8-6157] synthesizing module 'sram_check' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_check.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'sram_check' (22#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_check.v:3]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'clock_gen'. This will prevent further optimization [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:62]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'sram_check_0'. This will prevent further optimization [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:321]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'trymips0'. This will prevent further optimization [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:229]
+WARNING: [Synth 8-3848] Net flash_a in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:37]
+WARNING: [Synth 8-3848] Net flash_rp_n in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:39]
+WARNING: [Synth 8-3848] Net flash_vpen in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:40]
+WARNING: [Synth 8-3848] Net flash_ce_n in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:41]
+WARNING: [Synth 8-3848] Net flash_oe_n in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:42]
+WARNING: [Synth 8-3848] Net flash_we_n in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:43]
+WARNING: [Synth 8-3848] Net flash_byte_n in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:44]
+WARNING: [Synth 8-3848] Net video_red in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:47]
+WARNING: [Synth 8-3848] Net video_green in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:48]
+WARNING: [Synth 8-3848] Net video_blue in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:49]
+WARNING: [Synth 8-3848] Net video_hsync in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:50]
+WARNING: [Synth 8-3848] Net video_vsync in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:51]
+WARNING: [Synth 8-3848] Net video_clk in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:52]
+WARNING: [Synth 8-3848] Net video_de in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:53]
+WARNING: [Synth 8-3848] Net number in module/entity thinpad_top does not have driver. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:118]
+INFO: [Synth 8-6155] done synthesizing module 'thinpad_top' (23#1) [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v:3]
+WARNING: [Synth 8-3331] design sram_check has unconnected port clk
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[25]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[24]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[23]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[22]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[21]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[20]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[19]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[18]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[17]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[16]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[15]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[14]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[13]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[12]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[11]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[10]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[9]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[8]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[7]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[6]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[5]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[4]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[3]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[2]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[1]
+WARNING: [Synth 8-3331] design sram_check has unconnected port inst_check[0]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port clk_uart
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[31]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[30]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[29]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[28]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[27]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[26]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[25]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[24]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[23]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[22]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[1]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_addr_i[0]
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port rom_ce_i
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port pre_stall
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port will_be_baseram
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port this_inst_is_load
+WARNING: [Synth 8-3331] design sram_ctrl_double_try has unconnected port store_baseram
+WARNING: [Synth 8-3331] design ctrl has unconnected port rst
+WARNING: [Synth 8-3331] design ctrl has unconnected port stallreq_from_baseram
+WARNING: [Synth 8-3331] design mem_wb has unconnected port stall
+WARNING: [Synth 8-3331] design mem has unconnected port clk
+WARNING: [Synth 8-3331] design ex_mem has unconnected port stall
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[31]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[30]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[29]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[28]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[27]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[26]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[25]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[24]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[23]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[22]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[21]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[20]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[19]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[18]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[17]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[16]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[15]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[14]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[13]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[12]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[11]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[10]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[9]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[8]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[7]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[6]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[5]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[4]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[3]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[2]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[1]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_pc[0]
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_base_ram
+WARNING: [Synth 8-3331] design ex_mem has unconnected port ex_ext_ram
+WARNING: [Synth 8-3331] design ex has unconnected port alusel_i[2]
+WARNING: [Synth 8-3331] design ex has unconnected port alusel_i[1]
+WARNING: [Synth 8-3331] design ex has unconnected port alusel_i[0]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[31]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[30]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[29]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[28]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[27]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[26]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[25]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[24]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[23]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[22]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[21]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[20]
+WARNING: [Synth 8-3331] design ex has unconnected port inst_i[19]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 979.707 ; gain = 312.875
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 979.707 ; gain = 312.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 979.707 ; gain = 312.875
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.089 . Memory (MB): peak = 979.707 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/fifo_generator_0_1/fifo_generator_0/fifo_generator_0_in_context.xdc] for cell 'sram_ctrl_double_try_0/read'
+Finished Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/fifo_generator_0_1/fifo_generator_0/fifo_generator_0_in_context.xdc] for cell 'sram_ctrl_double_try_0/read'
+Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/fifo_generator_0_1/fifo_generator_0/fifo_generator_0_in_context.xdc] for cell 'sram_ctrl_double_try_0/trance'
+Finished Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/fifo_generator_0_1/fifo_generator_0/fifo_generator_0_in_context.xdc] for cell 'sram_ctrl_double_try_0/trance'
+Parsing XDC File [e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example/pll_example_in_context.xdc] for cell 'clock_gen'
+Finished Parsing XDC File [e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example/pll_example_in_context.xdc] for cell 'clock_gen'
+Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/mult_gen_0/mult_gen_0/mult_gen_0_in_context.xdc] for cell 'trymips0/your_instance_name'
+Finished Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/.Xil/Vivado-8124-DESKTOP-DI2J504/mult_gen_0/mult_gen_0/mult_gen_0_in_context.xdc] for cell 'trymips0/your_instance_name'
+Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc]
+WARNING: [Constraints 18-619] A clock with name 'clk_50M' already exists, overwriting the previous clock with the same name. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc:2]
+WARNING: [Vivado 12-507] No nets matched 'clock_btn_IBUF'. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc:17]
+WARNING: [Vivado 12-507] No nets matched 'reset_btn_IBUF'. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc:18]
+Finished Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/thinpad_top_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/thinpad_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/thinpad_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1115.617 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 1115.617 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'trymips0/your_instance_name' at clock pin 'CLK' is different from the actual clock period '10.000', this can lead to different synthesis results.
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1119.227 ; gain = 452.395
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tfbg676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1119.227 ; gain = 452.395
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk_50M. (constraint file  e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example/pll_example_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_50M. (constraint file  e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example/pll_example_in_context.xdc, line 5).
+Applied set_property DONT_TOUCH = true for sram_ctrl_double_try_0/read. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for sram_ctrl_double_try_0/trance. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for clock_gen. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for trymips0/your_instance_name. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1119.227 ; gain = 452.395
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "reg1_read_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "reg2_read_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "alusel_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "alusel_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "wreg_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pre_branch" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "aluop_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "aluop_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ex.v:348]
+INFO: [Synth 8-5546] ROM "mulce" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'RxD_state_reg' in module 'async_receiver'
+INFO: [Synth 8-802] inferred FSM for state register 'TxD_state_reg' in module 'async_transmitter'
+WARNING: [Synth 8-3936] Found unconnected internal register 'branch_target_address_i_delay1_reg' and it is trimmed from '32' to '22' bits. [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v:226]
+WARNING: [Synth 8-327] inferring latch for variable 'reg1_o_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:896]
+WARNING: [Synth 8-327] inferring latch for variable 'reg2_o_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:944]
+WARNING: [Synth 8-327] inferring latch for variable 'pre_stallreq_for_reg2_loadrelate_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v:103]
+WARNING: [Synth 8-327] inferring latch for variable 'store_baseram_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:201]
+WARNING: [Synth 8-327] inferring latch for variable 'store_extram_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:201]
+WARNING: [Synth 8-327] inferring latch for variable 'pre_load_baseram_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:202]
+WARNING: [Synth 8-327] inferring latch for variable 'pre_load_extram_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:202]
+WARNING: [Synth 8-327] inferring latch for variable 'store_bfd_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:203]
+WARNING: [Synth 8-327] inferring latch for variable 'pre_load_bfd_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v:204]
+WARNING: [Synth 8-327] inferring latch for variable 'op_for_baseram_reg' [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/mem.v:142]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE5 |                      00000000001 |                             0000
+                 iSTATE4 |                      00000000010 |                             0001
+                 iSTATE7 |                      00000000100 |                             1000
+                 iSTATE6 |                      00000001000 |                             1001
+                 iSTATE3 |                      00000010000 |                             1010
+                 iSTATE1 |                      00000100000 |                             1011
+                 iSTATE2 |                      00001000000 |                             1100
+                  iSTATE |                      00010000000 |                             1101
+                 iSTATE9 |                      00100000000 |                             1110
+                 iSTATE8 |                      01000000000 |                             1111
+                 iSTATE0 |                      10000000000 |                             0010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'RxD_state_reg' using encoding 'one-hot' in module 'async_receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE5 |                      00000000001 |                             0000
+                  iSTATE |                      00000000010 |                             0100
+                 iSTATE7 |                      00000000100 |                             1000
+                 iSTATE6 |                      00000001000 |                             1001
+                 iSTATE4 |                      00000010000 |                             1010
+                 iSTATE2 |                      00000100000 |                             1011
+                 iSTATE3 |                      00001000000 |                             1100
+                 iSTATE0 |                      00010000000 |                             1101
+                 iSTATE9 |                      00100000000 |                             1110
+                 iSTATE8 |                      01000000000 |                             1111
+                 iSTATE1 |                      10000000000 |                             0010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'TxD_state_reg' using encoding 'one-hot' in module 'async_transmitter'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1119.227 ; gain = 452.395
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'segL' (SEG7_LUT) to 'segH'
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 6     
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 7     
+	   2 Input      2 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 60    
+	               23 Bit    Registers := 2     
+	               22 Bit    Registers := 1     
+	               20 Bit    Registers := 2     
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 5     
+	                5 Bit    Registers := 8     
+	                4 Bit    Registers := 5     
+	                3 Bit    Registers := 9     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 49    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 52    
+	   4 Input     32 Bit        Muxes := 2     
+	   8 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 8     
+	  13 Input     32 Bit        Muxes := 1     
+	  12 Input     32 Bit        Muxes := 1     
+	   6 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input     20 Bit        Muxes := 2     
+	  11 Input     11 Bit        Muxes := 2     
+	   2 Input     11 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 12    
+	  23 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   5 Input      7 Bit        Muxes := 1     
+	  16 Input      6 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	  23 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 7     
+	   4 Input      5 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 11    
+	   5 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 2     
+	  17 Input      4 Bit        Muxes := 1     
+	   6 Input      4 Bit        Muxes := 1     
+	  11 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 14    
+	   4 Input      3 Bit        Muxes := 2     
+	  17 Input      3 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	  23 Input      3 Bit        Muxes := 1     
+	  13 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 5     
+	  23 Input      2 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 84    
+	   3 Input      1 Bit        Muxes := 8     
+	   4 Input      1 Bit        Muxes := 6     
+	  17 Input      1 Bit        Muxes := 5     
+	   5 Input      1 Bit        Muxes := 6     
+	  23 Input      1 Bit        Muxes := 2     
+	  13 Input      1 Bit        Muxes := 7     
+	   7 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 3     
+	  11 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module thinpad_top 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module pc_reg 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+Module if_id 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 5     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                3 Bit    Registers := 5     
+	                1 Bit    Registers := 11    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 7     
+	   2 Input      3 Bit        Muxes := 8     
+	   4 Input      3 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 12    
+	   4 Input      1 Bit        Muxes := 1     
+Module id 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	                5 Bit    Registers := 2     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 5     
+	   2 Input      8 Bit        Muxes := 4     
+	  23 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   5 Input      7 Bit        Muxes := 1     
+	  16 Input      6 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	  23 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 4     
+	   4 Input      5 Bit        Muxes := 2     
+	  17 Input      3 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	  23 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	  23 Input      2 Bit        Muxes := 1     
+	  17 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 7     
+	   4 Input      1 Bit        Muxes := 3     
+	  23 Input      1 Bit        Muxes := 2     
+Module regfile 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 34    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   3 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 32    
+Module id_ex 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 9     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module bbb 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 19    
+	   8 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 1     
+	  13 Input     32 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	  13 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	  13 Input      1 Bit        Muxes := 7     
+	   3 Input      1 Bit        Muxes := 1     
+Module bbb_ex 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 5     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
+Module ex 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   5 Input     32 Bit        Muxes := 2     
+	  12 Input     32 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	  17 Input      4 Bit        Muxes := 1     
+	  17 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   5 Input      1 Bit        Muxes := 4     
+Module ex_mem 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module mem 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 6     
+	   6 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   6 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   6 Input      2 Bit        Muxes := 2     
+	   7 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 3     
+Module mem_wb 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module BaudTickGen 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     23 Bit       Adders := 1     
++---Registers : 
+	               23 Bit    Registers := 1     
+Module async_receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	  11 Input     11 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
+	  11 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	  11 Input      1 Bit        Muxes := 1     
+Module BaudTickGen__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     23 Bit       Adders := 1     
++---Registers : 
+	               23 Bit    Registers := 1     
+Module async_transmitter 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	  11 Input     11 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	  11 Input      4 Bit        Muxes := 1     
+	  11 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module sram_ctrl_double_try 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               22 Bit    Registers := 1     
+	               20 Bit    Registers := 2     
+	                4 Bit    Registers := 5     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 14    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   5 Input     32 Bit        Muxes := 5     
+	   2 Input     20 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 6     
+	   2 Input      4 Bit        Muxes := 8     
+	   6 Input      3 Bit        Muxes := 5     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 14    
+	   4 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "aluop_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "aluop_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "mulce" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3917] design thinpad_top has port dpy0[0] driven by constant 0
+WARNING: [Synth 8-3917] design thinpad_top has port dpy1[0] driven by constant 0
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_pc_plus_8_reg[0]' (FDR) to 'trymips0/id_ex0/bbb_pc_plus_4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_pc_reg[0]' (FDR) to 'trymips0/id_ex0/bbb_pc_plus_4_reg[0]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_pc_reg[1]' (FDR) to 'trymips0/id_ex0/bbb_pc_plus_8_reg[1]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[30]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[31]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[31]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[29]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[29]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[28]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[28]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[27]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[27]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[26]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[26]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[25]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[25]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[24]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[24]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[23]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[23]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[22]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[22]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[21]'
+INFO: [Synth 8-3886] merging instance 'trymips0/pc_reg0/branch_flag_i_delay_reg' (FD) to 'trymips0/if_id0/branch_flag_i_delay_reg'
+INFO: [Synth 8-3886] merging instance 'trymips0/pc_reg0/branch_flag_i_delay1_reg' (FD) to 'trymips0/if_id0/branch_flag_i_delay1_reg'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[0]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/\id_ex0/bbb_imm_sll2_signedext_reg[1] )
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[17]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[21]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[18]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[21]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[19]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[21]'
+INFO: [Synth 8-3886] merging instance 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[20]' (FDR) to 'trymips0/id_ex0/bbb_imm_sll2_signedext_reg[21]'
+WARNING: [Synth 8-3332] Sequential element (store_extram_reg) is unused and will be removed from module bbb.
+WARNING: [Synth 8-3332] Sequential element (pre_load_extram_reg) is unused and will be removed from module bbb.
+WARNING: [Synth 8-3332] Sequential element (pre_load_bfd_reg) is unused and will be removed from module bbb.
+WARNING: [Synth 8-3332] Sequential element (mem0/op_for_baseram_reg) is unused and will be removed from module trymips.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1119.227 ; gain = 452.395
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-565] redefining clock 'clk_50M'
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1119.227 ; gain = 452.395
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1226.844 ; gain = 560.012
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (trymips0/regfile1/\regs_reg[0][31] )
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 1226.844 ; gain = 560.012
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_buffer_inferred:in0[7] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_buffer_inferred:in0[6] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_buffer_inferred:in0[5] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_buffer_inferred:in0[4] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_buffer_inferred:in0[3] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_buffer_inferred:in0[2] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_buffer_inferred:in0[1] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_buffer_inferred:in0[0] to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_clear_notyet_inferred:in0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_start_inferred:in0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin ext_uart_avai_inferred:in0 to constant 0
+WARNING: [Synth 8-3295] tying undriven pin read_clear_inferred:in0 to constant 0
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v:86]
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1226.844 ; gain = 560.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1226.844 ; gain = 560.012
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1226.844 ; gain = 560.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1226.844 ; gain = 560.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1226.844 ; gain = 560.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1226.844 ; gain = 560.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-----------------+----------+
+|      |BlackBox name    |Instances |
++------+-----------------+----------+
+|1     |mult_gen_0       |         1|
+|2     |fifo_generator_0 |         2|
+|3     |pll_example      |         1|
++------+-----------------+----------+
+
+Report Cell Usage: 
++------+--------------------+------+
+|      |Cell                |Count |
++------+--------------------+------+
+|1     |fifo_generator_0    |     1|
+|2     |fifo_generator_0__2 |     1|
+|3     |mult_gen_0          |     1|
+|4     |pll_example         |     1|
+|5     |BUFG                |     1|
+|6     |CARRY4              |    97|
+|7     |LUT1                |   131|
+|8     |LUT2                |   408|
+|9     |LUT3                |   149|
+|10    |LUT4                |   343|
+|11    |LUT5                |   424|
+|12    |LUT6                |  1269|
+|13    |MUXF7               |   256|
+|14    |MUXF8               |   128|
+|15    |FDCE                |    72|
+|16    |FDPE                |     6|
+|17    |FDRE                |  1949|
+|18    |FDSE                |     6|
+|19    |FD_1                |     1|
+|20    |LDC                 |    68|
+|21    |IBUF                |     3|
+|22    |IOBUF               |    64|
+|23    |OBUF                |    87|
+|24    |OBUFT               |    41|
++------+--------------------+------+
+
+Report Instance Areas: 
++------+-------------------------+----------------------------+------+
+|      |Instance                 |Module                      |Cells |
++------+-------------------------+----------------------------+------+
+|1     |top                      |                            |  5558|
+|2     |  trymips0               |trymips                     |  4683|
+|3     |    id0                  |id                          |   417|
+|4     |    regfile1             |regfile                     |  2087|
+|5     |    bbb0                 |bbb                         |   351|
+|6     |    bbb_ex0              |bbb_ex                      |   644|
+|7     |    ex0                  |ex                          |    20|
+|8     |    ex_mem0              |ex_mem                      |   274|
+|9     |    id_ex0               |id_ex                       |   193|
+|10    |    if_id0               |if_id                       |   478|
+|11    |    mem_wb0              |mem_wb                      |    38|
+|12    |    pc_reg0              |pc_reg                      |   149|
+|13    |  sram_ctrl_double_try_0 |sram_ctrl_double_try        |   722|
+|14    |    ext_uart_r           |async_receiver              |    79|
+|15    |      tickgen            |BaudTickGen                 |    48|
+|16    |    ext_uart_t           |async_transmitter           |    70|
+|17    |      tickgen            |BaudTickGen__parameterized0 |    38|
++------+-------------------------+----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1226.844 ; gain = 560.012
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 522 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:45 ; elapsed = 00:00:54 . Memory (MB): peak = 1226.844 ; gain = 420.492
+Synthesis Optimization Complete : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 1226.844 ; gain = 560.012
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.136 . Memory (MB): peak = 1227.688 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 614 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1231.289 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 133 instances were transformed.
+  FD_1 => FDRE (inverted pins: C): 1 instance 
+  IOBUF => IOBUF (IBUF, OBUFT): 64 instances
+  LDC => LDCE: 68 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+240 Infos, 187 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:04 . Memory (MB): peak = 1231.289 ; gain = 890.926
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1231.289 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/synth_1/thinpad_top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file thinpad_top_utilization_synth.rpt -pb thinpad_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 21 00:03:31 2023...

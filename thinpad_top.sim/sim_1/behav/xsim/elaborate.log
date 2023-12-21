@@ -1,0 +1,108 @@
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 1e0777dd008c45fcbaffd6b18f2c35e9 --incr --debug typical --relax --mt 2 -L fifo_generator_v13_2_5 -L xil_defaultlib -L xbip_utils_v3_0_10 -L xbip_pipe_v3_0_6 -L xbip_bram18k_v3_0_6 -L mult_gen_v12_0_16 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package mult_gen_v12_0_16.mult_gen_v12_0_16_viv_comp
+Compiling package xbip_utils_v3_0_10.xbip_utils_v3_0_10_pkg
+Compiling package mult_gen_v12_0_16.mult_gen_v12_0_16_pkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package synopsys.attributes
+Compiling package ieee.std_logic_misc
+Compiling package fifo_generator_v13_2_5.fifo_generator_v13_2_5_pkg
+Compiling package xpm.vcomponents
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=18.0,...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.pll_example_clk_wiz
+Compiling module xil_defaultlib.pll_example
+Compiling module xil_defaultlib.SEG7_LUT
+Compiling module xil_defaultlib.pc_reg
+Compiling module xil_defaultlib.if_id
+Compiling module xil_defaultlib.id
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="1000")(0,3)\]
+Compiling architecture mult_and_v of entity unisim.MULT_AND [mult_and_default]
+Compiling architecture muxcy_v of entity unisim.MUXCY [muxcy_default]
+Compiling architecture xorcy_v of entity unisim.XORCY [xorcy_default]
+Compiling architecture xilinx of entity mult_gen_v12_0_16.op_resize [\op_resize(ai_width=32,bi_width=...]
+Compiling architecture xilinx of entity mult_gen_v12_0_16.luts [\luts(c_xdevicefamily="artix7",c...]
+Compiling architecture xilinx of entity mult_gen_v12_0_16.mult_gen_v12_0_16_viv [\mult_gen_v12_0_16_viv(c_verbosi...]
+Compiling architecture xilinx of entity mult_gen_v12_0_16.mult_gen_v12_0_16 [\mult_gen_v12_0_16(c_xdevicefami...]
+Compiling architecture mult_gen_0_arch of entity xil_defaultlib.mult_gen_0 [mult_gen_0_default]
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.id_ex
+Compiling module xil_defaultlib.bbb
+Compiling module xil_defaultlib.bbb_ex
+Compiling module xil_defaultlib.ex
+Compiling module xil_defaultlib.ex_mem
+Compiling module xil_defaultlib.mem
+Compiling module xil_defaultlib.mem_wb
+Compiling module xil_defaultlib.ctrl
+Compiling module xil_defaultlib.trymips
+Compiling module xil_defaultlib.BaudTickGen(ClkFrequency=1000000...
+Compiling module xil_defaultlib.async_receiver(ClkFrequency=1000...
+Compiling module xil_defaultlib.BaudTickGen(ClkFrequency=1000000...
+Compiling module xil_defaultlib.async_transmitter(ClkFrequency=1...
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.reset_builtin [\reset_builtin(c_has_int_clk=0)\]
+Compiling architecture ff36_internal_vhdl_v of entity unisim.FF36_INTERNAL_VHDL [\FF36_INTERNAL_VHDL(almost_full_...]
+Compiling architecture fifo36e1_v of entity unisim.FIFO36E1 [\FIFO36E1(almost_full_offset="00...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.builtin_prim_v6 [\builtin_prim_v6(c_family="7SERI...]
+Compiling architecture ff36_internal_vhdl_v of entity unisim.FF36_INTERNAL_VHDL [\FF36_INTERNAL_VHDL(almost_full_...]
+Compiling architecture fifo36e1_v of entity unisim.FIFO36E1 [\FIFO36E1(almost_full_offset="00...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.builtin_prim_v6 [\builtin_prim_v6(c_family="7SERI...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.builtin_extdepth_v6 [\builtin_extdepth_v6(c_family="7...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.builtin_top_v6 [\builtin_top_v6(c_family="7SERIE...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.input_blk [\input_blk(c_rd_pntr_width=15,c_...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.output_blk [\output_blk(c_byte_strb_width=8)...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.fifo_generator_v13_2_5_builtin [\fifo_generator_v13_2_5_builtin(...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.fifo_generator_top [\fifo_generator_top(c_family="vi...]
+Compiling architecture xilinx of entity fifo_generator_v13_2_5.fifo_generator_v13_2_5_synth [\fifo_generator_v13_2_5_synth(c_...]
+Compiling module xil_defaultlib.fifo_generator_0
+Compiling module xil_defaultlib.sram_ctrl_double_try
+Compiling module xil_defaultlib.sram_check
+Compiling module xil_defaultlib.thinpad_top
+Compiling module xil_defaultlib.clock
+Compiling module xil_defaultlib.sram_model
+Compiling module xil_defaultlib.DataErrorModule
+Compiling module xil_defaultlib.CUIdecoder1_2
+Compiling module xil_defaultlib.CUIdecoder_Busy1_1
+Compiling module xil_defaultlib.CUIdecoder2_2
+Compiling module xil_defaultlib.KernelModule_1
+Compiling module xil_defaultlib.ReadModule_1
+Compiling module xil_defaultlib.OutputBufferModule_1
+Compiling module xil_defaultlib.StatusRegModule_1
+Compiling module xil_defaultlib.MemoryModule(FILENAME_MEM="/tmp/...
+Compiling module xil_defaultlib.ProgramModule_1
+Compiling module xil_defaultlib.BuffEnhancedFactProgramModule_1
+Compiling module xil_defaultlib.ProtectRegModule_1
+Compiling module xil_defaultlib.EraseModule_1
+Compiling module xil_defaultlib.BlankCheckModule_1
+Compiling module xil_defaultlib.BlockLockModule_1
+Compiling module xil_defaultlib.ProgramBufferModule_1
+Compiling module xil_defaultlib.SignatureModule_1
+Compiling module xil_defaultlib.CFIqueryModule_1
+Compiling module xil_defaultlib.ConfigRegModule_1
+Compiling module xil_defaultlib.BurstModule_1
+Compiling module xil_defaultlib.BankLib
+Compiling module xil_defaultlib.TimingDataModule
+Compiling module xil_defaultlib.TimingLibModule_1
+Compiling module xil_defaultlib.DebugModule
+Compiling module xil_defaultlib.x28fxxxp30(FILENAME_MEM="/tmp/ke...
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav

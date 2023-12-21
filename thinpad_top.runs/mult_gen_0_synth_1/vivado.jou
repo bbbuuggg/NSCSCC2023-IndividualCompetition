@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Aug 14 00:23:53 2023
+# Process ID: 35980
+# Current directory: E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/mult_gen_0_synth_1
+# Command line: vivado.exe -log mult_gen_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mult_gen_0.tcl
+# Log file: E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/mult_gen_0_synth_1/mult_gen_0.vds
+# Journal file: E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/mult_gen_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source mult_gen_0.tcl -notrace
