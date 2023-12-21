@@ -19,13 +19,12 @@
 `define SerialData  32'hBFD003F8    //串口数据地址
 module sram_ctrl_double_try (
     input wire clk,
-	input wire clk_uart,
     input wire rst,
 
     //if阶段输入的信息和获得的指�?
     input    wire[31:0]  rom_addr_i,        //读取指令的地�?
     input    wire        rom_ce_i,          //指令存储器使能信�?
-    output   wire [31:0]  inst_o,            //获取到的指令
+    output   reg [31:0]  inst_o,            //获取到的指令
 	
 	input wire pre_stall,
 
@@ -52,18 +51,17 @@ module sram_ctrl_double_try (
     (*mark_debug = "true"*)output   reg         ext_ram_ce_n,      //ExtRAM片�?�，低有�?
     (*mark_debug = "true"*)output   reg         ext_ram_oe_n,      //ExtRAM读使能，低有�?
     (*mark_debug = "true"*)output   reg         ext_ram_we_n,      //ExtRAM写使能，低有�?
-	(*mark_debug = "true"*)input wire is_base_ram,
-	(*mark_debug = "true"*)input wire is_ext_ram,
+	input wire is_base_ram,
 	input wire will_be_baseram,
 	output reg baseram_finish,
 	input  wire stallreq,
 	input  wire this_inst_is_load,
-	(*mark_debug = "true"*)input  wire [31:0] load_addr,
-	(*mark_debug = "true"*)input  wire load_we,
-	(*mark_debug = "true"*)input  wire [31:0]load_data,
-	(*mark_debug = "true"*)input  wire load_ce,
-	(*mark_debug = "true"*)input  wire [3:0] load_sel,
-	(*mark_debug = "true"*)output wire load_baseram,
+	input  wire [31:0] load_addr,
+	input  wire load_we,
+	input  wire [31:0]load_data,
+	input  wire load_ce,
+	input  wire [3:0] load_sel,
+	output wire load_baseram,
 	input wire branch_flag_i,
 	input wire[`RegBus] branch_target_address_i,
 	input wire store_baseram,
@@ -83,11 +81,13 @@ module sram_ctrl_double_try (
 (*mark_debug = "true"*)wire ext_uart_busy;//高忙
 (*mark_debug = "true"*)reg ext_uart_start;//发�?�标志，高有�?
 (*mark_debug = "true"*)reg ext_uart_avai;//缓冲区可用信号，高有�?
+(*mark_debug = "true"*)    wire [7:0]ext_uart_tx;
 (*mark_debug = "true"*)	wire read_full;
 (*mark_debug = "true"*)	wire read_clear;
 (*mark_debug = "true"*)	wire read_rd_en;
 (*mark_debug = "true"*)	wire [7:0]read_dout;
 (*mark_debug = "true"*)	wire read_empty;
+(*mark_debug = "true"*) wire trance_start;
 (*mark_debug = "true"*)	reg [7:0]trance_din;
 (*mark_debug = "true"*)	wire trance_start;//不忙不空
 (*mark_debug = "true"*)	wire trance_wr_en;
@@ -102,17 +102,8 @@ module sram_ctrl_double_try (
 	reg [31:0] rom_addr_clk;        //读取指令的地�?
     reg        rom_ce_clk;
 	reg load_baseram_delay;
-	reg load_extram_delay;
-	reg load_extram_delay_use;
 	reg load_baseram_delay_use;
 	reg [31:0]sbaseram_buffer;
-	reg [3:0] mem_sel_n_delay;
-	reg [3:0] mem_sel_n_delay2;
-	reg branch_flag_i_delay;
-	reg [`RegBus] branch_target_address_i_delay;
-	reg branch_flag_i_delay1;
-	reg [`RegBus] branch_target_address_i_delay1;
-(*mark_debug = "true"*)wire load_extram;
 	//内存映射
 wire is_SerialState = (mem_addr_i ==  `SerialState); 
 wire is_SerialData  = (mem_addr_i == `SerialData);
@@ -120,52 +111,22 @@ wire is_SerialData  = (mem_addr_i == `SerialData);
 // wire is_SerialData  = (load_addr == `SerialData);
 assign load_baseram    = (load_addr >= 32'h80000000) 
                     && (load_addr < 32'h80400000);
-assign load_extram    = (load_addr >= 32'h80400000) 
-                    && (load_addr < 32'h80800000);
-// wire is_ext_ram     = (mem_addr_i >= 32'h80400000)
-                    // && (mem_addr_i < 32'h80800000);
+wire is_ext_ram     = (mem_addr_i >= 32'h80400000)
+                    && (mem_addr_i < 32'h80800000);
 		reg is_base_ram_delay;
-		reg is_ext_ram_delay;
 		reg is_base_ram_delay2;
-		reg [3:0]cnt_o;
-		reg cnt_r;
 	always @(posedge clk or negedge rst)begin
 		if(rst == `RstEnable)begin
 			is_base_ram_delay <= 1'b0;
-			is_ext_ram_delay <= 1'b0;
-			mem_sel_n_delay <= 4'b0000;
 		end else if(is_base_ram)begin
 			is_base_ram_delay <= 1'b1;
-			is_ext_ram_delay <= 1'b0;
-			mem_sel_n_delay <= mem_sel_n;
-		end else if(is_ext_ram)begin
-			is_base_ram_delay <= 1'b0;
-			is_ext_ram_delay <= 1'b1;
-			mem_sel_n_delay <= mem_sel_n;
+		// end else if(cnt == 3'd1)begin
+			// is_base_ram_delay <= is_base_ram_delay;
 		end else begin 
 			is_base_ram_delay <= 1'b0;
-			is_ext_ram_delay <= 1'b0;
-			mem_sel_n_delay <= 4'b0000;
 		end
 	end
 	
-	always @(posedge clk) begin
-		if(rst) begin     
-			cnt_o <= 3'd0;  
-			cnt_r <= 1'b0;
-		end else if(cnt_o == 3'd4) begin      
-			cnt_r <= 1'b0;     
-			cnt_o  <=  3'd0;
-		end else if(mem_addr_i == `SerialData) begin    
-			cnt_r <= 1'b1;
-			cnt_o  <=  3'd1;
-		end  else if(cnt_r != 0 && !stallreq) begin    
-			cnt_o <= cnt_o + 1'b1;
-		end	else begin
-			cnt_r <= cnt_r;
-			cnt_o  <= cnt_o;
-		end
-	end
 	always @(posedge clk or negedge rst)begin
 		if(rst == `RstEnable)begin
 			is_base_ram_delay2 <= 1'b0;
@@ -206,25 +167,13 @@ assign load_extram    = (load_addr >= 32'h80400000)
         if(rst==`RstEnable) begin 
             state <= 2'b00;//初始//初始
 			load_baseram_delay <= 1'b0;
-			load_extram_delay <= 1'b0;
 			load_baseram_delay_use <= 1'b0;
-			load_extram_delay_use <= 1'b0;
 			sbaseram_buffer <= `ZeroWord;
-			branch_flag_i_delay <= 1'b0;
-			branch_target_address_i_delay <= `ZeroWord;
-			mem_sel_n_delay2 <= `ZeroWord;
         end else begin 
             state<=next_state;
 			load_baseram_delay <= load_baseram;
-			load_extram_delay <= load_extram;
-			load_extram_delay_use <= load_extram_delay;
 			load_baseram_delay_use <= load_baseram_delay;
 			sbaseram_buffer <= mem_data_i;
-			branch_flag_i_delay <= branch_flag_i;
-			branch_target_address_i_delay <= branch_target_address_i;
-			branch_flag_i_delay1 <= branch_flag_i_delay ;
-			branch_target_address_i_delay1 <= branch_target_address_i_delay;
-			mem_sel_n_delay2 <= mem_sel_n_delay;
         end 
     end
 	
@@ -286,7 +235,7 @@ assign load_extram    = (load_addr >= 32'h80400000)
 (*mark_debug = "true"*)wire[31:0] base_ram_o;      //baseram输出数据
 (*mark_debug = "true"*)wire[31:0] ext_ram_o;       //extram输出数据
 
-async_receiver #(.ClkFrequency(100000000),.Baud(9600)) //接收模块�?9600无检验位
+async_receiver #(.ClkFrequency(50000000),.Baud(9600)) //接收模块�?9600无检验位
     ext_uart_r(
         .clk(clk),                       //外部时钟信号
         .RxD(rxd),                           //外部串行信号输入
@@ -295,7 +244,7 @@ async_receiver #(.ClkFrequency(100000000),.Baud(9600)) //接收模块�?9600无�
         .RxD_data(ext_uart_rx)             //接收到的�?字节数据>out
     );
 	
-async_transmitter #(.ClkFrequency(100000000),.Baud(9600)) //发�?�模块，9600无检验位
+async_transmitter #(.ClkFrequency(50000000),.Baud(9600)) //发�?�模块，9600无检验位
     ext_uart_t(
         .clk(clk),                  //外部时钟信号
         .TxD(txd),                      //串行信号输出	>out
@@ -350,7 +299,7 @@ fifo_generator_0 trance (
 			ext_uart_clear <= 1'b1;
 		end
 		else begin
-			if(ext_uart_ready && (~read_full) && (mem_addr_i == `SerialData || cnt_o == 3'd4)) begin//
+			if(ext_uart_ready && (~read_full) && mem_addr_i == `SerialData) begin
 		// if(ext_uart_ready && (~read_full) && load_addr == `SerialData) begin
 				ext_uart_clear <= 1'b1;
 			end
@@ -398,7 +347,7 @@ fifo_generator_0 trance (
 
 //处理BaseRam（指令存储器�?//load_data
 // assign base_ram_data = is_base_ram_delay ? ((state == 2'b10) ? sbaseram_buffer : 32'hzzzzzzzz) : 32'hzzzzzzzz;
-assign base_ram_data = (is_base_ram || is_base_ram_delay) ? ((mem_we_n == `WriteEnable_n) ? mem_data_i : 32'hzzzzzzzz) : 32'hzzzzzzzz;
+assign base_ram_data = is_base_ram ? ((mem_we_n == `WriteEnable_n) ? mem_data_i : 32'hzzzzzzzz) : 32'hzzzzzzzz;
 assign base_ram_o = base_ram_data;      //读取到的BaseRam数据
 
 
@@ -412,42 +361,28 @@ always @(posedge clk or negedge rst) begin
         base_ram_ce_n <= 1'b0;
         base_ram_oe_n <= 1'b1;
         base_ram_we_n <= 1'b1;
-    // end else if((is_base_ram && stallreq == `NoStop)) begin           //baseram写，mem模块已叫暂停
-        // // base_ram_addr <= mem_addr_i[21:2];   //有对齐要求，低两位舍�?
-        // // base_ram_be_n <= mem_sel_n;
-		// base_ram_addr <= load_addr[21:2];   //有对齐要求，低两位舍�?
-        // base_ram_be_n <= load_sel;
-        // base_ram_ce_n <= 1'b0;
-        // base_ram_oe_n <= !load_we;
-        // base_ram_we_n <= load_we;
+    end else if((is_base_ram && stallreq == `NoStop)) begin           //baseram写，mem模块已叫暂停
+        // base_ram_addr <= mem_addr_i[21:2];   //有对齐要求，低两位舍�?
+        // base_ram_be_n <= mem_sel_n;
+		base_ram_addr <= load_addr[21:2];   //有对齐要求，低两位舍�?
+        base_ram_be_n <= load_sel;
+        base_ram_ce_n <= 1'b0;
+        base_ram_oe_n <= !load_we;
+        base_ram_we_n <= load_we;
 	end else if(load_baseram) begin //baseram写，mem模块已叫暂停 (this_inst_is_load && is_base_ram)&&
         base_ram_addr <= load_addr[21:2];   //有对齐要求，低两位舍�?
         base_ram_be_n <= load_sel;
         base_ram_ce_n <= 1'b0;
         base_ram_oe_n <= !load_we;
         base_ram_we_n <= load_we;
-    end else if(stallreq || is_base_ram) begin        //不写即读 if(state == 2'b01 ||state == 2'b11)
+    end else if(stallreq || load_baseram_delay) begin        //不写即读 if(state == 2'b01 ||state == 2'b11)
 		base_ram_addr <= base_ram_addr;   //有对齐要求，低两位舍�?
         base_ram_be_n <= base_ram_be_n;
         base_ram_ce_n <= 1'b0;
-		base_ram_oe_n <= base_ram_oe_n;
-        base_ram_we_n <= base_ram_we_n;
-        // base_ram_oe_n <= !load_we;
-        // base_ram_we_n <= load_we;
-	// end else if( branch_flag_i )begin //&& !load_baseram_delay_use
-		// base_ram_addr <= branch_target_address_i[21:2];   //有对齐要求，低两位舍县
-        // base_ram_be_n <= 4'b0000;
-        // base_ram_ce_n <= 1'b0;
-        // base_ram_oe_n <= 1'b0;
-        // base_ram_we_n <= 1'b1;
-	end else if( branch_flag_i_delay )begin //&& !load_baseram_delay_use
-		base_ram_addr <= branch_target_address_i_delay[21:2];   //有对齐要求，低两位舍�?
-        base_ram_be_n <= 4'b0000;
-        base_ram_ce_n <= 1'b0;
-        base_ram_oe_n <= 1'b0;
-        base_ram_we_n <= 1'b1;
-	end else if( branch_flag_i_delay1 )begin //&& !load_baseram_delay_use
-		base_ram_addr <= branch_target_address_i_delay1[21:2];   //有对齐要求，低两位舍县
+        base_ram_oe_n <= !load_we;
+        base_ram_we_n <= load_we;
+	end else if( branch_flag_i && !load_baseram_delay_use)begin 
+		base_ram_addr <= branch_target_address_i[21:2];   //有对齐要求，低两位舍�?
         base_ram_be_n <= 4'b0000;
         base_ram_ce_n <= 1'b0;
         base_ram_oe_n <= 1'b0;
@@ -461,72 +396,34 @@ always @(posedge clk or negedge rst) begin
 	end
 end
 
-// always @(*) begin
-    // // inst_o = `ZeroWord;
-    // // if(is_base_ram ) begin           //baseram写，mem模块已叫暂停
-        // // inst_o = base_ram_o;
-    // // end
-    // // end else begin  
-	// if(rst == `NoStop)begin//不写即读 if(state == 2'b01 ||state == 2'b11)
-    assign inst_o = base_ram_o;
+always @(*) begin
+    // inst_o = `ZeroWord;
+    // if(is_base_ram ) begin           //baseram写，mem模块已叫暂停
+        // inst_o = base_ram_o;
     // end
-// end
+    // end else begin  
+	if(rst == `NoStop)begin//不写即读 if(state == 2'b01 ||state == 2'b11)
+        inst_o = base_ram_o;
+    end
+end
 
 
 //处理ExtRam（数据存储器�?
-assign ext_ram_data = (is_ext_ram || is_ext_ram_delay)? ((mem_we_n == `WriteEnable_n) ? mem_data_i : 32'hzzzzzzzz) : 32'hzzzzzzzz;
+assign ext_ram_data = is_ext_ram ? ((mem_we_n == `WriteEnable_n) ? mem_data_i : 32'hzzzzzzzz) : 32'hzzzzzzzz;
 assign ext_ram_o = ext_ram_data;
 
-// always @(*) begin
-    // ext_ram_addr = 20'h00000;
-    // ext_ram_be_n = 4'b0000;
-    // ext_ram_ce_n = 1'b0;
-    // ext_ram_oe_n = 1'b1;
-    // ext_ram_we_n = 1'b1;
-    // if(is_ext_ram) begin           //涉及到extRam的相关数据操�?
-        // ext_ram_addr = mem_addr_i[21:2];    //有对齐要求，低两位舍�?
-        // ext_ram_be_n = mem_sel_n;
-        // ext_ram_ce_n = 1'b0;
-        // ext_ram_oe_n = !mem_we_n;
-        // ext_ram_we_n = mem_we_n;
-    // end else begin
-        // ext_ram_addr = 20'h00000;
-        // ext_ram_be_n = 4'b0000;
-        // ext_ram_ce_n = 1'b0;
-        // ext_ram_oe_n = 1'b1;
-        // ext_ram_we_n = 1'b1;
-    // end
-// end
-
-always @(posedge clk or negedge rst) begin
-    if(rst)begin
-        ext_ram_addr <= 20'h00000;
-        ext_ram_be_n <= 4'b0000;
-        ext_ram_ce_n <= 1'b0;
-        ext_ram_oe_n <= 1'b1;
-        ext_ram_we_n <= 1'b1;
-	end else if(is_ext_ram) begin        //不写即读 if(state == 2'b01 ||state == 2'b11)
-		ext_ram_addr <= ext_ram_addr;   //有对齐要求，低两位舍�?
-        ext_ram_be_n <= ext_ram_be_n;
-        ext_ram_ce_n <= 1'b0;
-		ext_ram_oe_n <= ext_ram_oe_n;
-        ext_ram_we_n <= ext_ram_we_n;
-        // ext_ram_oe_n <= !load_we;
-        // ext_ram_we_n <= load_we;
-    // end else if((is_ext_ram && stallreq == `NoStop)) begin           //extram写，mem模块已叫暂停
-        // // ext_ram_addr <= mem_addr_i[21:2];   //有对齐要求，低两位舍�?
-        // // ext_ram_be_n <= mem_sel_n;
-		// ext_ram_addr <= load_addr[21:2];   //有对齐要求，低两位舍�?
-        // ext_ram_be_n <= load_sel;
-        // ext_ram_ce_n <= 1'b0;
-        // ext_ram_oe_n <= !load_we;
-        // ext_ram_we_n <= load_we;
-	end else if(load_extram) begin //extram写，mem模块已叫暂停 (this_inst_is_load && is_ext_ram)&&
-        ext_ram_addr <= load_addr[21:2];   //有对齐要求，低两位舍�?
-        ext_ram_be_n <= load_sel;
-        ext_ram_ce_n <= 1'b0;
-        ext_ram_oe_n <= !load_we;
-        ext_ram_we_n <= load_we;
+always @(*) begin
+    ext_ram_addr = 20'h00000;
+    ext_ram_be_n = 4'b0000;
+    ext_ram_ce_n = 1'b0;
+    ext_ram_oe_n = 1'b1;
+    ext_ram_we_n = 1'b1;
+    if(is_ext_ram) begin           //涉及到extRam的相关数据操�?
+        ext_ram_addr = mem_addr_i[21:2];    //有对齐要求，低两位舍�?
+        ext_ram_be_n = mem_sel_n;
+        ext_ram_ce_n = 1'b0;
+        ext_ram_oe_n = !mem_we_n;
+        ext_ram_we_n = mem_we_n;
     end else begin
         ext_ram_addr = 20'h00000;
         ext_ram_be_n = 4'b0000;
@@ -535,7 +432,6 @@ always @(posedge clk or negedge rst) begin
         ext_ram_we_n = 1'b1;
     end
 end
-
 //11011101100010100001
 //0000 0000 0010 0001 0011 1101 0000 0101
 
@@ -544,50 +440,8 @@ always @(*) begin
     ram_data_o = `ZeroWord;
     if(is_SerialState || is_SerialData ) begin
         ram_data_o = serial_o;
-    end else if (is_base_ram) begin//|| is_base_ram_delay ||is_base_ram_delay2
+    end else if (is_base_ram || is_base_ram_delay ||is_base_ram_delay2) begin
         case (mem_sel_n)
-            4'b1110: begin
-                ram_data_o = {{24{base_ram_o[7]}}, base_ram_o[7:0]};
-            end
-            4'b1101: begin
-                ram_data_o = {{24{base_ram_o[15]}}, base_ram_o[15:8]};
-            end
-            4'b1011: begin
-                ram_data_o = {{24{base_ram_o[23]}}, base_ram_o[23:16]};
-            end
-            4'b0111: begin
-                ram_data_o = {{24{base_ram_o[31]}}, base_ram_o[31:24]};
-            end
-            4'b0000: begin
-                ram_data_o = base_ram_o;
-            end
-            default: begin
-                ram_data_o = base_ram_o;
-            end
-        endcase
-   end else if (is_base_ram_delay) begin
-        case (mem_sel_n_delay)
-            4'b1110: begin
-                ram_data_o = {{24{base_ram_o[7]}}, base_ram_o[7:0]};
-            end
-            4'b1101: begin
-                ram_data_o = {{24{base_ram_o[15]}}, base_ram_o[15:8]};
-            end
-            4'b1011: begin
-                ram_data_o = {{24{base_ram_o[23]}}, base_ram_o[23:16]};
-            end
-            4'b0111: begin
-                ram_data_o = {{24{base_ram_o[31]}}, base_ram_o[31:24]};
-            end
-            4'b0000: begin
-                ram_data_o = base_ram_o;
-            end
-            default: begin
-                ram_data_o = base_ram_o;
-            end
-        endcase
-	end else if (is_base_ram_delay2) begin
-        case (mem_sel_n_delay2)
             4'b1110: begin
                 ram_data_o = {{24{base_ram_o[7]}}, base_ram_o[7:0]};
             end
@@ -609,27 +463,6 @@ always @(*) begin
         endcase
     end else if (is_ext_ram) begin
         case (mem_sel_n)
-            4'b1110: begin
-                ram_data_o = {{24{ext_ram_o[7]}}, ext_ram_o[7:0]};
-            end
-            4'b1101: begin
-                ram_data_o = {{24{ext_ram_o[15]}}, ext_ram_o[15:8]};
-            end
-            4'b1011: begin
-                ram_data_o = {{24{ext_ram_o[23]}}, ext_ram_o[23:16]};
-            end
-            4'b0111: begin
-                ram_data_o = {{24{ext_ram_o[31]}}, ext_ram_o[31:24]};
-            end
-            4'b0000: begin
-                ram_data_o = ext_ram_o;
-            end
-            default: begin
-                ram_data_o = ext_ram_o;
-            end
-        endcase
-	end else if (is_ext_ram_delay) begin
-        case (mem_sel_n_delay)
             4'b1110: begin
                 ram_data_o = {{24{ext_ram_o[7]}}, ext_ram_o[7:0]};
             end

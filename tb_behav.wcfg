@@ -7,22 +7,23 @@
          <top_modules>
             <top_module name="glbl" />
             <top_module name="tb" />
+            <top_module name="vcomponents" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="187501fs"></ZoomEndTime>
-      <Cursor1Time time="50000fs"></Cursor1Time>
+      <ZoomStartTime time="40442083fs"></ZoomStartTime>
+      <ZoomEndTime time="41081584fs"></ZoomEndTime>
+      <Cursor1Time time="40550000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="199"></NameColumnWidth>
-      <ValueColumnWidth column_width="73"></ValueColumnWidth>
+      <NameColumnWidth column_width="269"></NameColumnWidth>
+      <ValueColumnWidth column_width="109"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="34" />
-   <wvobject fp_name="/tb/clk_50M" type="logic">
-      <obj_property name="ElementShortName">clk_50M</obj_property>
-      <obj_property name="ObjectShortName">clk_50M</obj_property>
+   <WVObjectSize size="104" />
+   <wvobject fp_name="/tb/dut/clock_gen/clk_out1" type="logic">
+      <obj_property name="ElementShortName">clk_out1</obj_property>
+      <obj_property name="ObjectShortName">clk_out1</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/clk_11M0592" type="logic">
       <obj_property name="ElementShortName">clk_11M0592</obj_property>
@@ -64,13 +65,165 @@
       <obj_property name="ElementShortName">rxd</obj_property>
       <obj_property name="ObjectShortName">rxd</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/base_ram_data" type="array">
-      <obj_property name="ElementShortName">base_ram_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">base_ram_data[31:0]</obj_property>
+   <wvobject fp_name="/tb/dut/trymips0/rom_data_i" type="array">
+      <obj_property name="ElementShortName">rom_data_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_data_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/clock_gen/clk_out1" type="logic">
+      <obj_property name="ElementShortName">clk_out1</obj_property>
+      <obj_property name="ObjectShortName">clk_out1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/pc_reg0/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/if_id0/if_pc" type="array">
+      <obj_property name="ElementShortName">if_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">if_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/if_id0/if_inst" type="array">
+      <obj_property name="ElementShortName">if_inst[31:0]</obj_property>
+      <obj_property name="ObjectShortName">if_inst[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/if_id0/id_pc" type="array">
+      <obj_property name="ElementShortName">id_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">id_pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/if_id0/id_inst" type="array">
+      <obj_property name="ElementShortName">id_inst[31:0]</obj_property>
+      <obj_property name="ObjectShortName">id_inst[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/inst_i" type="array">
+      <obj_property name="ElementShortName">inst_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/pc_reg0/stall" type="logic">
+      <obj_property name="ElementShortName">stall</obj_property>
+      <obj_property name="ObjectShortName">stall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id_ex0/ex_reg1" type="array">
+      <obj_property name="ElementShortName">ex_reg1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_reg1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/reg1_o" type="array">
+      <obj_property name="ElementShortName">reg1_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg1_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/ex0/reg1_i" type="array">
+      <obj_property name="ElementShortName">reg1_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg1_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/ex0/mem_addr_o" type="array">
+      <obj_property name="ElementShortName">mem_addr_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_addr_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/mem0/mem_addr_i" type="array">
+      <obj_property name="ElementShortName">mem_addr_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_addr_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/aluop_o" type="array">
+      <obj_property name="ElementShortName">aluop_o[7:0]</obj_property>
+      <obj_property name="ObjectShortName">aluop_o[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/ex0/aluop_o" type="array">
+      <obj_property name="ElementShortName">aluop_o[7:0]</obj_property>
+      <obj_property name="ObjectShortName">aluop_o[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/mem0/mem_op" type="array">
+      <obj_property name="ElementShortName">mem_op[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_op[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/ctrl0/stallreq_from_baseram" type="logic">
+      <obj_property name="ElementShortName">stallreq_from_baseram</obj_property>
+      <obj_property name="ObjectShortName">stallreq_from_baseram</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/mem0/stallreq" type="logic">
+      <obj_property name="ElementShortName">stallreq</obj_property>
+      <obj_property name="ObjectShortName">stallreq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/stallreq" type="logic">
+      <obj_property name="ElementShortName">stallreq</obj_property>
+      <obj_property name="ObjectShortName">stallreq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/aluop_o" type="array">
+      <obj_property name="ElementShortName">aluop_o[7:0]</obj_property>
+      <obj_property name="ObjectShortName">aluop_o[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/ex0/aluop_o" type="array">
+      <obj_property name="ElementShortName">aluop_o[7:0]</obj_property>
+      <obj_property name="ObjectShortName">aluop_o[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/pc_i" type="array">
+      <obj_property name="ElementShortName">pc_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_i[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/base_ram_addr" type="array">
       <obj_property name="ElementShortName">base_ram_addr[19:0]</obj_property>
       <obj_property name="ObjectShortName">base_ram_addr[19:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/base_ram_data" type="array">
+      <obj_property name="ElementShortName">base_ram_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">base_ram_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/ext_ram_data" type="array">
+      <obj_property name="ElementShortName">ext_ram_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_ram_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/imm_sll2_signedext" type="array">
+      <obj_property name="ElementShortName">imm_sll2_signedext[31:0]</obj_property>
+      <obj_property name="ObjectShortName">imm_sll2_signedext[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/rdata1" type="array">
+      <obj_property name="ElementShortName">rdata1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/branch_flag_o" type="logic">
+      <obj_property name="ElementShortName">branch_flag_o</obj_property>
+      <obj_property name="ObjectShortName">branch_flag_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/raddr1" type="array">
+      <obj_property name="ElementShortName">raddr1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">raddr1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/reg1_data_i" type="array">
+      <obj_property name="ElementShortName">reg1_data_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg1_data_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/ex_wdata_i" type="array">
+      <obj_property name="ElementShortName">ex_wdata_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ex_wdata_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/mem_wdata_i" type="array">
+      <obj_property name="ElementShortName">mem_wdata_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_wdata_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/reg1_o" type="array">
+      <obj_property name="ElementShortName">reg1_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg1_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/branch_target_address_o" type="array">
+      <obj_property name="ElementShortName">branch_target_address_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_target_address_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/reg2_read_o" type="logic">
+      <obj_property name="ElementShortName">reg2_read_o</obj_property>
+      <obj_property name="ObjectShortName">reg2_read_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/reg2_o" type="array">
+      <obj_property name="ElementShortName">reg2_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg2_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/branch_target_address_o" type="array">
+      <obj_property name="ElementShortName">branch_target_address_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_target_address_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/id0/branch_flag_o" type="logic">
+      <obj_property name="ElementShortName">branch_flag_o</obj_property>
+      <obj_property name="ObjectShortName">branch_flag_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/ctrl0/stall" type="logic">
+      <obj_property name="ElementShortName">stall</obj_property>
+      <obj_property name="ObjectShortName">stall</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/base_ram_be_n" type="array">
       <obj_property name="ElementShortName">base_ram_be_n[3:0]</obj_property>
@@ -88,9 +241,9 @@
       <obj_property name="ElementShortName">base_ram_we_n</obj_property>
       <obj_property name="ObjectShortName">base_ram_we_n</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/ext_ram_data" type="array">
-      <obj_property name="ElementShortName">ext_ram_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ext_ram_data[31:0]</obj_property>
+   <wvobject fp_name="/tb/dut/trymips0/id0/inst_i" type="array">
+      <obj_property name="ElementShortName">inst_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_i[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/ext_ram_addr" type="array">
       <obj_property name="ElementShortName">ext_ram_addr[19:0]</obj_property>
@@ -99,6 +252,134 @@
    <wvobject fp_name="/tb/ext_ram_be_n" type="array">
       <obj_property name="ElementShortName">ext_ram_be_n[3:0]</obj_property>
       <obj_property name="ObjectShortName">ext_ram_be_n[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_zero_0" type="array">
+      <obj_property name="ElementShortName">watch_zero_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_zero_0[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_a0_4" type="array">
+      <obj_property name="ElementShortName">watch_a0_4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_a0_4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_at_1" type="array">
+      <obj_property name="ElementShortName">watch_at_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_at_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_v0_2" type="array">
+      <obj_property name="ElementShortName">watch_v0_2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_v0_2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_v1_3" type="array">
+      <obj_property name="ElementShortName">watch_v1_3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_v1_3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_a1_5" type="array">
+      <obj_property name="ElementShortName">watch_a1_5[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_a1_5[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_a2_6" type="array">
+      <obj_property name="ElementShortName">watch_a2_6[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_a2_6[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_a3_7" type="array">
+      <obj_property name="ElementShortName">watch_a3_7[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_a3_7[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t0_8" type="array">
+      <obj_property name="ElementShortName">watch_t0_8[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t0_8[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t1_9" type="array">
+      <obj_property name="ElementShortName">watch_t1_9[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t1_9[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t2_10" type="array">
+      <obj_property name="ElementShortName">watch_t2_10[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t2_10[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t3_11" type="array">
+      <obj_property name="ElementShortName">watch_t3_11[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t3_11[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t4_12" type="array">
+      <obj_property name="ElementShortName">watch_t4_12[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t4_12[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t5_13" type="array">
+      <obj_property name="ElementShortName">watch_t5_13[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t5_13[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t6_14" type="array">
+      <obj_property name="ElementShortName">watch_t6_14[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t6_14[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t7_15" type="array">
+      <obj_property name="ElementShortName">watch_t7_15[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t7_15[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_s0_16" type="array">
+      <obj_property name="ElementShortName">watch_s0_16[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_s0_16[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_s1_17" type="array">
+      <obj_property name="ElementShortName">watch_s1_17[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_s1_17[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_s2_18" type="array">
+      <obj_property name="ElementShortName">watch_s2_18[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_s2_18[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_s3_19" type="array">
+      <obj_property name="ElementShortName">watch_s3_19[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_s3_19[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_s4_20" type="array">
+      <obj_property name="ElementShortName">watch_s4_20[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_s4_20[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_s5_21" type="array">
+      <obj_property name="ElementShortName">watch_s5_21[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_s5_21[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_s6_22" type="array">
+      <obj_property name="ElementShortName">watch_s6_22[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_s6_22[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_s7_23" type="array">
+      <obj_property name="ElementShortName">watch_s7_23[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_s7_23[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t8_24" type="array">
+      <obj_property name="ElementShortName">watch_t8_24[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t8_24[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_t9_25" type="array">
+      <obj_property name="ElementShortName">watch_t9_25[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_t9_25[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_26" type="array">
+      <obj_property name="ElementShortName">watch_26[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_26[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_27" type="array">
+      <obj_property name="ElementShortName">watch_27[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_27[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_gp_28" type="array">
+      <obj_property name="ElementShortName">watch_gp_28[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_gp_28[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_sp_29" type="array">
+      <obj_property name="ElementShortName">watch_sp_29[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_sp_29[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/watch_fp_30" type="array">
+      <obj_property name="ElementShortName">watch_fp_30[31:0]</obj_property>
+      <obj_property name="ObjectShortName">watch_fp_30[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/dut/trymips0/regfile1/regs[31]" type="array">
+      <obj_property name="ElementShortName">[31][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[31][31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/ext_ram_ce_n" type="logic">
       <obj_property name="ElementShortName">ext_ram_ce_n</obj_property>
@@ -145,13 +426,12 @@
       <obj_property name="ObjectShortName">flash_byte_n</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/BASE_RAM_INIT_FILE" type="array">
-      <obj_property name="ElementShortName">BASE_RAM_INIT_FILE[319:0]</obj_property>
-      <obj_property name="ObjectShortName">BASE_RAM_INIT_FILE[319:0]</obj_property>
+      <obj_property name="ElementShortName">BASE_RAM_INIT_FILE[399:0]</obj_property>
+      <obj_property name="ObjectShortName">BASE_RAM_INIT_FILE[399:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/EXT_RAM_INIT_FILE" type="array">
-      <obj_property name="ElementShortName">EXT_RAM_INIT_FILE[823:0]</obj_property>
-      <obj_property name="ObjectShortName">EXT_RAM_INIT_FILE[823:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="ElementShortName">EXT_RAM_INIT_FILE[335:0]</obj_property>
+      <obj_property name="ObjectShortName">EXT_RAM_INIT_FILE[335:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/FLASH_INIT_FILE" type="array">
       <obj_property name="ElementShortName">FLASH_INIT_FILE[119:0]</obj_property>

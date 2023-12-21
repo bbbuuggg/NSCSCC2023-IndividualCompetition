@@ -41,7 +41,6 @@ module ex(
 	input wire[`RegBus]           link_address_i,
 	input wire                    is_in_delayslot_i,	
 	
-
 	// //访存阶段的指令是否要写CP0，用来检测数据相关
 	// input wire                    mem_cp0_reg_we,
 	// input wire[4:0]               mem_cp0_reg_write_addr,
@@ -74,11 +73,9 @@ module ex(
 	// output reg                    signed_div_o,
 	//mem
     // output  reg [3:0]    mem_op,         //存储类型,同时要送往id阶段以判断load相关
-    output  reg [`RegBus]   mem_addr_o,     //存储地址
+    output  wire [`RegBus]   mem_addr_o,     //存储地址
     output  wire [`RegBus]   mem_data_o,     //存储数据
-   
-	output wire  this_inst_is_load,
-	output reg mulce,
+    output  wire         this_inst_is_load,
 	//提前给sram准备输入
 	output 	reg [31:0]load_addr,//控制load_addr输出
 	output  reg load_we,
@@ -90,9 +87,6 @@ module ex(
 	output reg wreg_o,
 	output reg[`RegBus] wdata_o,
 	output wire will_be_baseram,
-	
-	output reg ex_base_ram,
-	output reg ex_ext_ram,
 	// //for s &load
 	output wire[`AluOpBus]        aluop_o
 	// output wire[`RegBus]          mem_addr_o,
@@ -112,7 +106,6 @@ module ex(
 	// //特殊寄存器
 	// reg[`RegBus] HI;
 	// reg[`RegBus] LO;
-	
 	
 	wire[`RegBus] reg2_i_mux;//reg2补码
 	wire[`RegBus] reg1_i_not;//reg1取反	
@@ -149,7 +142,6 @@ module ex(
 			wdata_o = `ZeroWord;
 			wd_o = `ZeroWord;
 			wreg_o = `WriteDisable;
-			mulce = 1'b0;
 		end else begin
 			wd_o = wd_i;
 			wdata_o = `ZeroWord;
@@ -157,93 +149,72 @@ module ex(
 			case (aluop_i)
 				`EXE_OR_OP: begin //或运算
 					wdata_o = reg1_i | reg2_i;
-					mulce = 1'b0;
 				end
 				`EXE_AND_OP:		begin
 					wdata_o = reg1_i & reg2_i;
-					mulce = 1'b0;
 				end
 				`EXE_NOR_OP:		begin//或非
 					wdata_o = ~(reg1_i |reg2_i);
-					mulce = 1'b0;
 				end
 				`EXE_XOR_OP:		begin//异或
 					wdata_o = reg1_i ^ reg2_i;
-					mulce = 1'b0;
 				end
 				`EXE_MUL_OP: begin
-                    wdata_o = 32'h11111111 ;   //无符号乘法代替有符号乘法 reg1_i * reg2_i
-					mulce = 1'b1;
+                    wdata_o = reg1_i * reg2_i;   //无符号乘法代替有符号乘法
                 end      
 				`EXE_JALR_OP: begin
                     wdata_o = link_address_i;
-					mulce = 1'b0;
                 end
 				`EXE_JR_OP: begin
                     wdata_o = link_address_i;
-					mulce = 1'b0;
                 end
 				`EXE_J_OP: begin
                     wdata_o = link_address_i;
-					mulce = 1'b0;
                 end
 				`EXE_JAL_OP: begin
                     wdata_o = link_address_i;
-					mulce = 1'b0;
                 end
 				`EXE_BEQ_OP: begin
                     wdata_o = link_address_i;
-					mulce = 1'b0;
                 end
 				`EXE_SLL_OP:	begin
 					wdata_o = reg2_i << reg1_i[4:0] ;
-					mulce = 1'b0;
 				end
 				`EXE_SRL_OP:	begin
 					wdata_o = reg2_i >> reg1_i[4:0];
-					mulce = 1'b0;
 				end
 				`EXE_SRA_OP:	begin//算术右移
 					wdata_o = ({32{reg2_i[31]}} << (6'd32-{1'b0, reg1_i[4:0]})) 
 												| reg2_i >> reg1_i[4:0];
-					mulce = 1'b0;
 				end
 				`EXE_SLT_OP, `EXE_SLTU_OP:		begin
 					wdata_o = reg1_lt_reg2 ;
-					mulce = 1'b0;
 				end
 				`EXE_ADD_OP, `EXE_ADDU_OP, `EXE_ADDI_OP, `EXE_ADDIU_OP:		begin
 					wdata_o = result_sum; 
-					mulce = 1'b0;
 				end
 				`EXE_SUB_OP, `EXE_SUBU_OP:		begin
 					wdata_o = result_sum; 
-					mulce = 1'b0;
 				end		
 				default: begin
 					wdata_o = `ZeroWord;
-					mulce = 1'b0;
 				end
 			endcase
 		end
 	end
 
 	//mem_addr传递到访存阶段，是加载、存储指令对应的存储器地址
-     // assign mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
+     assign mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
 	 assign will_be_baseram    = (mem_addr_o >= 32'h80000000) 
                     && (mem_addr_o < 32'h80400000);
-	
-	
+					
 	always @(*)begin
-		case(aluop_i)
+		case(aluop_o)
 					`EXE_LB_OP:  begin
-						mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
-						load_addr = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
+						load_addr = mem_addr_o;
 						load_data = `ZeroWord;
 						load_we = `WriteDisable_low;
 						load_ce = `ChipEnable;
-						ex_base_ram  = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80000000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80400000);
-						ex_ext_ram = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80400000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80800000);
 						case(load_addr[1:0])
 							2'b00: begin
 								load_sel = 4'b1110;
@@ -263,23 +234,17 @@ module ex(
 						endcase
 					end
 					`EXE_LW_OP:  begin
-						mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
-						load_addr = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
+						load_addr = mem_addr_o;
 						load_data = `ZeroWord;
 						load_we = `WriteDisable_low;
 						load_ce = `ChipEnable;
 						load_sel = 4'b0000;
-						ex_base_ram  = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80000000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80400000);
-						ex_ext_ram = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80400000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80800000);
 					end
 					`EXE_SB_OP:  begin
-						mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
-						load_addr = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
-						load_data = {4{reg2_i[7:0]}};    //低字节存储到指定位置
+						load_addr = mem_addr_o;
+						load_data = {4{mem_data_o[7:0]}};    //低字节存储到指定位置
 						load_we = `WriteEnable_low;
 						load_ce = `ChipEnable;
-						ex_base_ram  = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80000000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80400000);
-						ex_ext_ram = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]}>= 32'h80400000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80800000);
 						case(load_addr[1:0])
 							2'b00: begin
 								load_sel = 4'b1110;
@@ -299,24 +264,18 @@ module ex(
 						endcase
 					end
 					`EXE_SW_OP:  begin
-						mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
-						load_addr = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
-						load_data = reg2_i;
+						load_addr = mem_addr_o;
+						load_data = mem_data_o;
 						load_we = `WriteEnable_low;
 						load_ce = `ChipEnable;
 						load_sel = 4'b0000;
-						ex_base_ram  = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80000000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80400000);
-						ex_ext_ram = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80400000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80800000);
 					end
 					default: begin
-						mem_addr_o = `ZeroWord;
 						load_addr = `ZeroWord;
 						load_data = `ZeroWord;
 						load_we = `WriteDisable_low;
 						load_ce = `ChipDisable;
 						load_sel = 4'b1111;
-						ex_base_ram  = 1'b0;
-						ex_ext_ram = 1'b0;
 					end
 				endcase
 	end

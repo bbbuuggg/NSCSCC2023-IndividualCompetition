@@ -1,7 +1,7 @@
 `include "defines.v"
 
 module mem(
-	input wire clk,
+
 	input wire rst,
 	
 	//from EX
@@ -19,8 +19,6 @@ module mem(
 	input       wire[`AluOpBus]   mem_op,     
     input       wire[31:0]  mem_addr_i, 
     input       wire[31:0]  mem_data_i,
-	
-	input wire [31:0] mulans,
 	//来自memory的信�?
 	// input wire[`RegBus]          mem_data_i,
 	
@@ -73,7 +71,6 @@ module mem(
 	output reg   op_for_baseram,
 	
 	output reg is_base_ram,
-	output reg is_ext_ram,
 	
 	// output reg[31:0]             excepttype_o,
 	// output wire[`RegBus]          cp0_epc_o,
@@ -114,18 +111,7 @@ module mem(
 			// end
 		// end
 	// end
-	reg is_base_ram_delay;
-	always @ (posedge clk) begin
-		if(rst == `RstEnable) begin
-			is_base_ram_delay <= 1'b0;
-		end else begin
-			if(is_base_ram == 1'b1) begin
-				is_base_ram_delay <= 1'b1;
-			end else begin
-				is_base_ram_delay <= 1'b0;
-			end
-		end
-	end
+	
 	always @ (*) begin
 		if(rst == `RstEnable) begin
 			wd_o = `NOPRegAddr;
@@ -141,7 +127,6 @@ module mem(
 			mem_ce_o = `ChipDisable;
 			op_for_baseram = 1'b0;
 			is_base_ram  = 1'b0;
-			is_ext_ram = 1'b0;
 			//LLbit_we_o <= 1'b0;
 			//LLbit_value_o <= 1'b0;	
 			//cp0_reg_we_o <= `WriteDisable;
@@ -172,7 +157,6 @@ module mem(
 						mem_ce_o = `ChipEnable;
 						op_for_baseram = 1'b1;
 						is_base_ram  = (mem_addr_i >= 32'h80000000) && (mem_addr_i < 32'h80400000);
-						is_ext_ram = (mem_addr_i >= 32'h80400000) && (mem_addr_i < 32'h80800000);
 						case(mem_addr_i[1:0])
 							2'b00: begin
 								mem_sel_o = 4'b1110;
@@ -200,7 +184,6 @@ module mem(
 						mem_sel_o = 4'b0000;
 						op_for_baseram = 1'b1;
 						is_base_ram  = (mem_addr_i >= 32'h80000000) && (mem_addr_i < 32'h80400000);
-						is_ext_ram = (mem_addr_i >= 32'h80400000) && (mem_addr_i < 32'h80800000);
 					end
 					`EXE_SB_OP:  begin
 						wdata_o = `ZeroWord;
@@ -210,7 +193,6 @@ module mem(
 						mem_ce_o = `ChipEnable;
 						op_for_baseram = 1'b1;
 						is_base_ram  = (mem_addr_i >= 32'h80000000) && (mem_addr_i < 32'h80400000);
-						is_ext_ram = (mem_addr_i >= 32'h80400000) && (mem_addr_i < 32'h80800000);
 						case(mem_addr_i[1:0])
 							2'b00: begin
 								mem_sel_o = 4'b1110;
@@ -238,17 +220,6 @@ module mem(
 						mem_sel_o = 4'b0000;
 						op_for_baseram = 1'b1;
 						is_base_ram  = (mem_addr_i >= 32'h80000000) && (mem_addr_i < 32'h80400000);
-						is_ext_ram = (mem_addr_i >= 32'h80400000) && (mem_addr_i < 32'h80800000);
-					end
-					`EXE_MUL_OP: begin
-						wdata_o = mulans;
-						mem_addr_o = `ZeroWord;
-						mem_data_o = `ZeroWord;
-						mem_we_o = `WriteDisable_low;
-						mem_ce_o = `ChipDisable;
-						mem_sel_o = 4'b1111;
-						is_base_ram  = 1'b0;
-						is_ext_ram = 1'b0;
 					end
 					default: begin
 						wdata_o = wdata_i;
@@ -258,7 +229,6 @@ module mem(
 						mem_ce_o = `ChipDisable;
 						mem_sel_o = 4'b1111;
 						is_base_ram  = 1'b0;
-						is_ext_ram = 1'b0;
 					end
 				endcase
 			end

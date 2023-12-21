@@ -1,7 +1,6 @@
 *.bin
 *.o
 *.elf
-*.zip
 ipshared/
 *_netlist.*
 *_stub.*
@@ -15,7 +14,7 @@ thinpad_top.cache/
 thinpad_top.hw/
 thinpad_top.ip_user_files/
 thinpad_top.runs/
-thinpad_top.sim/
+thinpad_top.sim/sim_1/behav/xsim/
 .Xil/
 *.jou
 *.log

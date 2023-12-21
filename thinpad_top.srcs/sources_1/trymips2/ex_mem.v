@@ -29,11 +29,6 @@ module ex_mem(
 	input wire[`RegBus]          ex_mem_addr,
 	input wire[`RegBus]          ex_mem_data,
 	
-	input wire is_base_ram,
-	input wire is_ext_ram,
-	
-	input wire ex_base_ram,
-	input wire ex_ext_ram,
 	// input wire[`DoubleRegBus]     hilo_i,	
 	// input wire[1:0]               cnt_i,	
 
@@ -135,15 +130,7 @@ module ex_mem(
 			// mem_cp0_reg_data <= `ZeroWord;
 			// mem_excepttype <= `ZeroWord;
 			// mem_is_in_delayslot <= `NotInDelaySlot;
-			// mem_current_inst_address <= `ZeroWord;	
-		end else if(is_base_ram || is_ext_ram) begin//有待考究的一块
-			mem_wd <= mem_wd;
-			mem_wreg <= mem_wreg;
-			mem_wdata <= `ZeroWord;	
-			mem_aluop <= mem_aluop;
-			mem_mem_addr <= `ZeroWord;
-			mem_mem_data <= mem_mem_data;//mem_mem_data
-
+			// mem_current_inst_address <= `ZeroWord;			
 		end else  begin//执行不停  if(stall[3] == `NoStop)
 			// mem_pc <= ex_pc;
             // mem_mem_op <= ex_aluop;
