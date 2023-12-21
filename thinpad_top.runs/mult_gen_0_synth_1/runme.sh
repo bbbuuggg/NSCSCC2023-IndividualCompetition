@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/mult_gen_0_synth_1'
+HD_PWD='E:/LONGXIN/nscscc2023_mips_v2.0/Gitlab/2023323/thinpad_top.runs/mult_gen_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

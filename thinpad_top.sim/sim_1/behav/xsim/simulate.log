@@ -2,20 +2,20 @@ Vivado Simulator 2019.2
 Time resolution is 1 ps
 [        0 ns]  --- Device is Busy  (start up time) --- 
 WARNING: Insufficient data from the input file for $fread
-BaseRAM Init Size(words):       16396
+BaseRAM Init Size(words):        3213
 WARNING: Insufficient data from the input file for $fread
-ExtRAM Init Size(words):       65536
-Note: Actual FIFO Depth = 32772
+ExtRAM Init Size(words):      524288
+Note: Actual FIFO Depth = 8193
 Time: 0 ps  Iteration: 0
-Note: Actual FIFO Depth = 32772
+Note: Actual FIFO Depth = 8193
 Time: 0 ps  Iteration: 0
-Note:  DEPTH = 8192 WIDTH = 4 C_RD_PRIM_WIDTH = 4 C_RD_PRIM_DEPTH = 8192 DEEP = 4 WIDE = 2
+Note:  DEPTH = 8192 WIDTH = 4 C_RD_PRIM_WIDTH = 4 C_RD_PRIM_DEPTH = 8192 DEEP = 1 WIDE = 2
 Time: 0 ps  Iteration: 0
-Note: Actual FIFO Depth = 32772
+Note: Actual FIFO Depth = 8193
 Time: 0 ps  Iteration: 0
-Note: Actual FIFO Depth = 32772
+Note: Actual FIFO Depth = 8193
 Time: 0 ps  Iteration: 0
-Note:  DEPTH = 8192 WIDTH = 4 C_RD_PRIM_WIDTH = 4 C_RD_PRIM_DEPTH = 8192 DEEP = 4 WIDE = 2
+Note:  DEPTH = 8192 WIDTH = 4 C_RD_PRIM_WIDTH = 4 C_RD_PRIM_DEPTH = 8192 DEEP = 1 WIDE = 2
 Time: 0 ps  Iteration: 0
 [        0 ns]  ASynchronous Read Mode
 [        0 ns]  VDD Voltage is OK

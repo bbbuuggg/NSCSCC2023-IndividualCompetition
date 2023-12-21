@@ -209,8 +209,6 @@ end
   wire pre_stall;
   wire is_base_ram;
   wire is_ext_ram;
-  wire ex_base_ram;
-  wire ex_ext_ram;
   wire baseram_finish;
   
   wire this_inst_is_load;
@@ -239,8 +237,6 @@ end
 		.baseram_finish(baseram_finish),
 		.is_base_ram(is_base_ram),
 		.is_ext_ram(is_ext_ram),
-		.ex_base_ram(ex_base_ram),
-		.ex_ext_ram(ex_ext_ram),
 		.will_be_baseram(will_be_baseram),
 		.load_baseram(load_baseram),
 		.store_baseram(store_baseram),
@@ -267,7 +263,6 @@ end
 sram_ctrl_double_try sram_ctrl_double_try_0(
 
         .clk                (clk_10M),  
-		.clk_uart			(clk_20M),
         .rst                (reset_of_clk10M),
 
         .rom_addr_i         (inst_addr),

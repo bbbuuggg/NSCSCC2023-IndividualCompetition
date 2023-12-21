@@ -13,7 +13,7 @@ module ctrl(
 );
 
 	always @(*) begin
-        if(stallreq_from_id )begin//| stall_from_mem | stallreq_from_baseram
+        if(stallreq_from_id | stallreq_from_baseram )begin//| stall_from_mem
 			stall = 1'b1;
 		end else begin
 			stall = 1'b0;

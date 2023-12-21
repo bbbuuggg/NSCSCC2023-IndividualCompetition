@@ -31,9 +31,6 @@ module ex_mem(
 	
 	input wire is_base_ram,
 	input wire is_ext_ram,
-	
-	input wire ex_base_ram,
-	input wire ex_ext_ram,
 	// input wire[`DoubleRegBus]     hilo_i,	
 	// input wire[1:0]               cnt_i,	
 
@@ -142,7 +139,7 @@ module ex_mem(
 			mem_wdata <= `ZeroWord;	
 			mem_aluop <= mem_aluop;
 			mem_mem_addr <= `ZeroWord;
-			mem_mem_data <= mem_mem_data;//mem_mem_data
+			mem_mem_data <= `ZeroWord;
 
 		end else  begin//Ö´ÐÐ²»Í£  if(stall[3] == `NoStop)
 			// mem_pc <= ex_pc;

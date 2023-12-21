@@ -40,9 +40,9 @@ wire flash_we_n;         //Flash写使能信号，低有�?
 wire flash_byte_n;       //Flash 8bit模式选择，低有效。在使用flash�?16位模式时请设�?1
 
 //Windows�?要注意路径分隔符的转义，例如"D:\\foo\\bar.bin"
-parameter BASE_RAM_INIT_FILE = "E:\\LONGXIN\\nscscc2023_mips_v2.0\\stream.bin";//_change"baseram_matrix"; BaseRAM初始化文件，请修改为实际的绝对路�?
+parameter BASE_RAM_INIT_FILE = "E:\\LONGXIN\\nscscc2023_mips_v2.0\\kernel_3.bin";//"baseram_matrix"; BaseRAM初始化文件，请修改为实际的绝对路�?
 //parameter BASE_RAM_INIT_FILE ="E:\\LONGXIN\\nscscc2023_mips_v2.0\\windows_env_v0.01\\add2windows_env\\testbin\\test.bin";
-parameter EXT_RAM_INIT_FILE = "E:\\LONGXIN\\nscscc2023_mips_v2.0\\matrix.bin";//"/tmp/eram.bin";    ExtRAM初始化文件，请修改为实际的绝对路�?
+parameter EXT_RAM_INIT_FILE = "E:\\LONGXIN\\nscscc2023_mips_v2.0\\cry_ext.bin";//"/tmp/eram.bin";  "/tmp/eram.bin";    ExtRAM初始化文件，请修改为实际的绝对路�?
 parameter FLASH_INIT_FILE = "/tmp/kernel.elf";    //Flash初始化文件，请修改为实际的绝对路�?
 
 //assign rxd = 1'b1; //idle state
@@ -64,7 +64,7 @@ initial begin
     end
 
 
- #5040000
+ #11600000
 
     rxd = 1'b1;
     #104000

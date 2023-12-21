@@ -76,8 +76,8 @@ module ex(
     // output  reg [3:0]    mem_op,         //存储类型,同时要送往id阶段以判断load相关
     output  reg [`RegBus]   mem_addr_o,     //存储地址
     output  wire [`RegBus]   mem_data_o,     //存储数据
-   
-	output wire  this_inst_is_load,
+    output  wire         this_inst_is_load,
+	
 	output reg mulce,
 	//提前给sram准备输入
 	output 	reg [31:0]load_addr,//控制load_addr输出
@@ -90,9 +90,6 @@ module ex(
 	output reg wreg_o,
 	output reg[`RegBus] wdata_o,
 	output wire will_be_baseram,
-	
-	output reg ex_base_ram,
-	output reg ex_ext_ram,
 	// //for s &load
 	output wire[`AluOpBus]        aluop_o
 	// output wire[`RegBus]          mem_addr_o,
@@ -112,7 +109,6 @@ module ex(
 	// //特殊寄存器
 	// reg[`RegBus] HI;
 	// reg[`RegBus] LO;
-	
 	
 	wire[`RegBus] reg2_i_mux;//reg2补码
 	wire[`RegBus] reg1_i_not;//reg1取反	
@@ -232,18 +228,15 @@ module ex(
      // assign mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
 	 assign will_be_baseram    = (mem_addr_o >= 32'h80000000) 
                     && (mem_addr_o < 32'h80400000);
-	
-	
+					
 	always @(*)begin
-		case(aluop_i)
+		case(aluop_o)
 					`EXE_LB_OP:  begin
 						mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
 						load_addr = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
 						load_data = `ZeroWord;
 						load_we = `WriteDisable_low;
 						load_ce = `ChipEnable;
-						ex_base_ram  = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80000000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80400000);
-						ex_ext_ram = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80400000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80800000);
 						case(load_addr[1:0])
 							2'b00: begin
 								load_sel = 4'b1110;
@@ -269,8 +262,6 @@ module ex(
 						load_we = `WriteDisable_low;
 						load_ce = `ChipEnable;
 						load_sel = 4'b0000;
-						ex_base_ram  = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80000000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80400000);
-						ex_ext_ram = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80400000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80800000);
 					end
 					`EXE_SB_OP:  begin
 						mem_addr_o = reg1_i + {{16{inst_i[15]}},inst_i[15:0]};
@@ -278,8 +269,6 @@ module ex(
 						load_data = {4{reg2_i[7:0]}};    //低字节存储到指定位置
 						load_we = `WriteEnable_low;
 						load_ce = `ChipEnable;
-						ex_base_ram  = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80000000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80400000);
-						ex_ext_ram = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]}>= 32'h80400000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80800000);
 						case(load_addr[1:0])
 							2'b00: begin
 								load_sel = 4'b1110;
@@ -305,8 +294,6 @@ module ex(
 						load_we = `WriteEnable_low;
 						load_ce = `ChipEnable;
 						load_sel = 4'b0000;
-						ex_base_ram  = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80000000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80400000);
-						ex_ext_ram = (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} >= 32'h80400000) && (reg1_i + {{16{inst_i[15]}},inst_i[15:0]} < 32'h80800000);
 					end
 					default: begin
 						mem_addr_o = `ZeroWord;
@@ -315,8 +302,6 @@ module ex(
 						load_we = `WriteDisable_low;
 						load_ce = `ChipDisable;
 						load_sel = 4'b1111;
-						ex_base_ram  = 1'b0;
-						ex_ext_ram = 1'b0;
 					end
 				endcase
 	end

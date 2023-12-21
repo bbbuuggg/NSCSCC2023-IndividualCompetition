@@ -17,55 +17,49 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param tcl.collectionResultDisplayLimit 0
-set_param chipscope.maxJobs 4
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7a200tfbg676-2
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.cache/wt [current_project]
-set_property parent.project_path E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.xpr [current_project]
+set_property webtalk.parent_dir E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.cache/wt [current_project]
+set_property parent.project_path E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.cache/ip [current_project]
+set_property ip_output_repo e:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/SEG7_LUT.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/async.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/defines.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/bbb_ex.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ctrl.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ex.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/ex_mem.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/id_ex.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/if_id.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/mem.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/mem_wb.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/pc_reg.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/regfile.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_check.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/trymips2/trymips.v
-  E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/new/thinpad_top.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/new/SEG7_LUT.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/new/async.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/defines.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/ctrl.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/ex.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/ex_mem.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/id.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/id_ex.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/if_id.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/mem.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/mem_wb.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/pc_reg.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/regfile.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/sram_check.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/sram_ctrl_double_try.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/trymips2/trymips.v
+  E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/new/thinpad_top.v
 }
-read_ip -quiet E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/fifo_generator_0_1/fifo_generator_0.xci
-set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/fifo_generator_0_1/fifo_generator_0.xdc]
-set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/fifo_generator_0_1/fifo_generator_0_ooc.xdc]
+read_ip -quiet E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/pll_example/pll_example.xci
+set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/pll_example/pll_example_board.xdc]
+set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/pll_example/pll_example.xdc]
+set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/pll_example/pll_example_ooc.xdc]
 
-read_ip -quiet E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example.xci
-set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example_board.xdc]
-set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example.xdc]
-set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example_ooc.xdc]
+read_ip -quiet E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/mult_gen_0/mult_gen_0.xci
+set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/mult_gen_0/mult_gen_0_ooc.xdc]
 
-read_ip -quiet E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/mult_gen_0/mult_gen_0.xci
-set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/mult_gen_0/mult_gen_0_ooc.xdc]
+read_ip -quiet E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xci
+set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0.xdc]
+set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -75,8 +69,8 @@ set_property used_in_implementation false [get_files -all e:/LONGXIN/nscscc2023_
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc
-set_property used_in_implementation false [get_files E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc]
+read_xdc E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc
+set_property used_in_implementation false [get_files E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

@@ -5,20 +5,17 @@ module regfile(
 	input wire clk,
 	input wire rst,
 	
-	input wire we,//写使能
+	input wire  we,//写使能
 	input wire [`RegAddrBus] waddr,
 	input wire [`RegBus] wdata,
-	input wire [`RegAddrBus] pre_waddr,
-	input wire [`RegBus] pre_wdata,
-	input wire pre_we,
 	//r1
 	input wire re1,//读使能
 	input wire [`RegAddrBus] raddr1,
-	(*mark_debug = "true"*)output reg [`RegBus]     rdata1,
+	output reg [`RegBus]     rdata1,
 	//r2
 	input wire  re2,
 	input wire [`RegAddrBus] raddr2,
-	(*mark_debug = "true"*)output reg [`RegBus] rdata2
+	output reg [`RegBus] rdata2
 
 );
 reg[`RegBus] regs[0:`RegNum-1];//32个32位寄存器
@@ -69,31 +66,31 @@ integer i;
 		end
 	end
 	
-	always @ (posedge clk) begin//读1
+	always @ (*) begin//读1
 		if(rst == `RstEnable) begin
-			rdata1 <= `ZeroWord;
+			rdata1 = `ZeroWord;
 		end else if(raddr1 == `RegNumLog2'h0) begin
-			rdata1 <= `ZeroWord;
+			rdata1 = `ZeroWord;
 		end else if((raddr1 == waddr) && (we == `WriteEnable) && (re1 == `ReadEnable)) begin//若读写相同则直接输出
-			rdata1 <= wdata;
+			rdata1 = wdata;
 		end else if(re1 == `ReadEnable)begin//从寄存器中读值
-			rdata1 <= regs[raddr1];
+			rdata1 = regs[raddr1];
 		end else begin
-			rdata1 <= `ZeroWord;
+			rdata1 = `ZeroWord;
 		end
 	end
 	
-	always @ (posedge clk) begin//读2
+	always @ (*) begin//读2
 		if(rst == `RstEnable) begin
-			rdata2 <= `ZeroWord;
+			rdata2 = `ZeroWord;
 		end else if(raddr2 == `RegNumLog2'h0) begin
-			rdata2 <= `ZeroWord;
+			rdata2 = `ZeroWord;
 		end else if((raddr2 == waddr) && (we == `WriteEnable) && (re2 == `ReadEnable)) begin//写值
-			rdata2 <= wdata;
+			rdata2 = wdata;
 		end else if(re2 == `ReadEnable)begin//从寄存器中读值
-			rdata2 <= regs[raddr2];
+			rdata2 = regs[raddr2];
 		end else begin
-			rdata2 <= `ZeroWord;
+			rdata2 = `ZeroWord;
 		end
 	end
 	

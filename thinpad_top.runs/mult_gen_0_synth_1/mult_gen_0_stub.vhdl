@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
--- Date        : Mon Aug 14 00:24:34 2023
+-- Date        : Wed Aug 16 11:07:46 2023
 -- Host        : DESKTOP-DI2J504 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.runs/mult_gen_0_synth_1/mult_gen_0_stub.vhdl
+--               E:/LONGXIN/nscscc2023_mips_v2.0/Gitlab/2023323/thinpad_top.runs/mult_gen_0_synth_1/mult_gen_0_stub.vhdl
 -- Design      : mult_gen_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a200tfbg676-2

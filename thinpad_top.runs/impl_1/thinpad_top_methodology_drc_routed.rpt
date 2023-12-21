@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Mon Aug 21 00:11:41 2023
+| Date         : Mon Aug 21 12:13:00 2023
 | Host         : DESKTOP-DI2J504 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file thinpad_top_methodology_drc_routed.rpt -pb thinpad_top_methodology_drc_routed.pb -rpx thinpad_top_methodology_drc_routed.rpx
 | Design       : thinpad_top
@@ -23,16 +23,16 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 57
+             Violations found: 275
 +-----------+------------------+--------------------------------------------------------+------------+
 | Rule      | Severity         | Description                                            | Violations |
 +-----------+------------------+--------------------------------------------------------+------------+
 | TIMING-17 | Critical Warning | Non-clocked sequential cell                            | 32         |
-| LUTAR-1   | Warning          | LUT drives async reset alert                           | 9          |
-| PDRC-190  | Warning          | Suboptimally placed synchronized register chain        | 10         |
-| TIMING-20 | Warning          | Non-clocked latch                                      | 4          |
+| LUTAR-1   | Warning          | LUT drives async reset alert                           | 5          |
+| TIMING-20 | Warning          | Non-clocked latch                                      | 36         |
 | XDCC-1    | Warning          | Scoped Clock constraint overwritten with the same name | 1          |
 | XDCC-7    | Warning          | Scoped Clock constraint overwritten on the same source | 1          |
+| XDCH-2    | Warning          | Same min and max delay values on IO port               | 200        |
 +-----------+------------------+--------------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -199,131 +199,1621 @@ Related violations: <none>
 
 LUTAR-1#1 Warning
 LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/gf36e1_inst.sngfifo36e1_i_1__4, with 2 or more inputs, drives asynchronous preset/clear pin(s) sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gf36e1_inst.sngfifo36e1/RST. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#2 Warning
 LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/gf36e1_inst.sngfifo36e1_i_1__4, with 2 or more inputs, drives asynchronous preset/clear pin(s) sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[2].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[2].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[2].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST (the first 15 of 24 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#3 Warning
 LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell trymips0/id0/reg1_o_reg[31]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) trymips0/id0/reg1_o_reg[0]/CLR, trymips0/id0/reg1_o_reg[10]/CLR, trymips0/id0/reg1_o_reg[11]/CLR, trymips0/id0/reg1_o_reg[12]/CLR, trymips0/id0/reg1_o_reg[13]/CLR, trymips0/id0/reg1_o_reg[14]/CLR, trymips0/id0/reg1_o_reg[15]/CLR, trymips0/id0/reg1_o_reg[16]/CLR, trymips0/id0/reg1_o_reg[17]/CLR, trymips0/id0/reg1_o_reg[18]/CLR, trymips0/id0/reg1_o_reg[19]/CLR, trymips0/id0/reg1_o_reg[1]/CLR, trymips0/id0/reg1_o_reg[20]/CLR, trymips0/id0/reg1_o_reg[21]/CLR, trymips0/id0/reg1_o_reg[22]/CLR (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#4 Warning
 LUT drives async reset alert  
-LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE, dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell trymips0/id0/reg2_o_reg[31]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) trymips0/id0/reg2_o_reg[0]/CLR, trymips0/id0/reg2_o_reg[10]/CLR, trymips0/id0/reg2_o_reg[11]/CLR, trymips0/id0/reg2_o_reg[12]/CLR, trymips0/id0/reg2_o_reg[13]/CLR, trymips0/id0/reg2_o_reg[14]/CLR, trymips0/id0/reg2_o_reg[15]/CLR, trymips0/id0/reg2_o_reg[16]/CLR, trymips0/id0/reg2_o_reg[17]/CLR, trymips0/id0/reg2_o_reg[18]/CLR, trymips0/id0/reg2_o_reg[19]/CLR, trymips0/id0/reg2_o_reg[1]/CLR, trymips0/id0/reg2_o_reg[20]/CLR, trymips0/id0/reg2_o_reg[21]/CLR, trymips0/id0/reg2_o_reg[22]/CLR (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#5 Warning
 LUT drives async reset alert  
-LUT cell sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/gf36e1_inst.sngfifo36e1_i_1__4, with 2 or more inputs, drives asynchronous preset/clear pin(s) sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[2].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[2].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/read/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[2].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST (the first 15 of 24 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#6 Warning
-LUT drives async reset alert  
-LUT cell sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/gf36e1_inst.sngfifo36e1_i_1__4, with 2 or more inputs, drives asynchronous preset/clear pin(s) sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[2].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[3].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[1].gnll_fifo.inst_extd/gchain.gp1[4].gbldl.inst_prim/gf36e1_inst.sngfifo36e1/RST, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[2].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_q_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[2].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gsfl.empty_user_reg/PRE, sram_ctrl_double_try_0/trance/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/v7_bi_fifo.fblk/gextw[2].gnll_fifo.inst_extd/gchain.gp1[1].gbldc.inst_prim/gf36e1_inst.sngfifo36e1/RST (the first 15 of 24 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#7 Warning
-LUT drives async reset alert  
-LUT cell trymips0/bbb0/store_baseram_reg_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) trymips0/bbb0/pre_load_baseram_reg/CLR, trymips0/bbb0/store_baseram_reg/CLR, trymips0/bbb0/store_bfd_reg/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#8 Warning
-LUT drives async reset alert  
-LUT cell trymips0/id0/reg1_o_reg[31]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) trymips0/id0/reg1_o_reg[0]/CLR, trymips0/id0/reg1_o_reg[10]/CLR, trymips0/id0/reg1_o_reg[11]/CLR, trymips0/id0/reg1_o_reg[12]/CLR, trymips0/id0/reg1_o_reg[13]/CLR, trymips0/id0/reg1_o_reg[14]/CLR, trymips0/id0/reg1_o_reg[15]/CLR, trymips0/id0/reg1_o_reg[16]/CLR, trymips0/id0/reg1_o_reg[17]/CLR, trymips0/id0/reg1_o_reg[18]/CLR, trymips0/id0/reg1_o_reg[19]/CLR, trymips0/id0/reg1_o_reg[1]/CLR, trymips0/id0/reg1_o_reg[20]/CLR, trymips0/id0/reg1_o_reg[21]/CLR, trymips0/id0/reg1_o_reg[22]/CLR (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-LUTAR-1#9 Warning
-LUT drives async reset alert  
-LUT cell trymips0/id0/reg2_o_reg[31]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) trymips0/id0/reg2_o_reg[0]/CLR, trymips0/id0/reg2_o_reg[10]/CLR, trymips0/id0/reg2_o_reg[11]/CLR, trymips0/id0/reg2_o_reg[12]/CLR, trymips0/id0/reg2_o_reg[13]/CLR, trymips0/id0/reg2_o_reg[14]/CLR, trymips0/id0/reg2_o_reg[15]/CLR, trymips0/id0/reg2_o_reg[16]/CLR, trymips0/id0/reg2_o_reg[17]/CLR, trymips0/id0/reg2_o_reg[18]/CLR, trymips0/id0/reg2_o_reg[19]/CLR, trymips0/id0/reg2_o_reg[1]/CLR, trymips0/id0/reg2_o_reg[20]/CLR, trymips0/id0/reg2_o_reg[21]/CLR, trymips0/id0/reg2_o_reg[22]/CLR (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-PDRC-190#1 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[0] in site SLICE_X101Y91 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#2 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[1] in site SLICE_X100Y89 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#3 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[2] in site SLICE_X102Y89 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#4 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_reg[3] in site SLICE_X101Y89 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD2/stat_reg_1_reg[3] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#5 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[0] in site SLICE_X98Y86 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#6 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[1] in site SLICE_X96Y86 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#7 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_reg[2] in site SLICE_X97Y86 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD3/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#8 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[0] in site SLICE_X99Y86 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[0] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#9 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[1] in site SLICE_X102Y87 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[1] is not placed in the same (SLICE) site.
-Related violations: <none>
-
-PDRC-190#10 Warning
-Suboptimally placed synchronized register chain  
-The FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_reg[2] in site SLICE_X101Y87 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_STAT/stat_reg_1_reg[2] is not placed in the same (SLICE) site.
+LUT cell trymips0/id0/store_baseram_reg_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) trymips0/id0/pre_load_baseram_reg/CLR, trymips0/id0/pre_load_extram_reg/CLR, trymips0/id0/store_baseram_reg/CLR, trymips0/id0/store_extram_reg/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 TIMING-20#1 Warning
 Non-clocked latch  
-The latch trymips0/bbb0/pre_load_baseram_reg cannot be properly analyzed as its control pin trymips0/bbb0/pre_load_baseram_reg/G is not reached by a timing clock
+The latch sram_ctrl_double_try_0/inst_o_reg[0] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#2 Warning
 Non-clocked latch  
-The latch trymips0/bbb0/store_baseram_reg cannot be properly analyzed as its control pin trymips0/bbb0/store_baseram_reg/G is not reached by a timing clock
+The latch sram_ctrl_double_try_0/inst_o_reg[10] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[10]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#3 Warning
 Non-clocked latch  
-The latch trymips0/bbb0/store_bfd_reg cannot be properly analyzed as its control pin trymips0/bbb0/store_bfd_reg/G is not reached by a timing clock
+The latch sram_ctrl_double_try_0/inst_o_reg[11] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[11]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#4 Warning
 Non-clocked latch  
-The latch trymips0/id0/pre_stallreq_for_reg2_loadrelate_reg cannot be properly analyzed as its control pin trymips0/id0/pre_stallreq_for_reg2_loadrelate_reg/G is not reached by a timing clock
+The latch sram_ctrl_double_try_0/inst_o_reg[12] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[12]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[13] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[13]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[14] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[14]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[15] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[15]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[16] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[16]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[17] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[17]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[18] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[18]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[19] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[19]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[1] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[20] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[20]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[21] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[21]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[22] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[22]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[23] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[23]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#17 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[24] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[24]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#18 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[25] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[25]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#19 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[26] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[26]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#20 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[27] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[27]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#21 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[28] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[28]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#22 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[29] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[29]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#23 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[2] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#24 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[30] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[30]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#25 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[31] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[31]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#26 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[3] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#27 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[4] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#28 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[5] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#29 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[6] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#30 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[7] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#31 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[8] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[8]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#32 Warning
+Non-clocked latch  
+The latch sram_ctrl_double_try_0/inst_o_reg[9] cannot be properly analyzed as its control pin sram_ctrl_double_try_0/inst_o_reg[9]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#33 Warning
+Non-clocked latch  
+The latch trymips0/id0/pre_load_baseram_reg cannot be properly analyzed as its control pin trymips0/id0/pre_load_baseram_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#34 Warning
+Non-clocked latch  
+The latch trymips0/id0/pre_load_extram_reg cannot be properly analyzed as its control pin trymips0/id0/pre_load_extram_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#35 Warning
+Non-clocked latch  
+The latch trymips0/id0/store_baseram_reg cannot be properly analyzed as its control pin trymips0/id0/store_baseram_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#36 Warning
+Non-clocked latch  
+The latch trymips0/id0/store_extram_reg cannot be properly analyzed as its control pin trymips0/id0/store_extram_reg/G is not reached by a timing clock
 Related violations: <none>
 
 XDCC-1#1 Warning
 Scoped Clock constraint overwritten with the same name  
 A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
-New: create_clock -period 20.000 -name clk_50M -waveform {0.000 3.000} [get_ports clk_50M] (Source: E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 2))
-Previous: create_clock -period 20.000 [get_ports clk_50M] (Source: e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example.xdc (Line: 56))
+New: create_clock -period 20.000 -name clk_50M -waveform {0.000 3.000} [get_ports clk_50M] (Source: E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 2))
+Previous: create_clock -period 20.000 [get_ports clk_50M] (Source: e:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/pll_example/pll_example.xdc (Line: 56))
 Related violations: <none>
 
 XDCC-7#1 Warning
 Scoped Clock constraint overwritten on the same source  
 A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
-New: create_clock -period 20.000 -name clk_50M -waveform {0.000 3.000} [get_ports clk_50M] (Source: E:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 2))
-Previous: create_clock -period 20.000 [get_ports clk_50M] (Source: e:/LONGXIN/nscscc2023_mips_v2.0/fpga_template_mips_utf8_v1.0/thinpad_top.srcs/sources_1/ip/pll_example/pll_example.xdc (Line: 56))
+New: create_clock -period 20.000 -name clk_50M -waveform {0.000 3.000} [get_ports clk_50M] (Source: E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 2))
+Previous: create_clock -period 20.000 [get_ports clk_50M] (Source: e:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/sources_1/ip/pll_example/pll_example.xdc (Line: 56))
+Related violations: <none>
+
+XDCH-2#1 Warning
+Same min and max delay values on IO port  
+The same input delay of 2.000 ns has been defined on port 'reset_btn' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 2.000 [get_ports reset_btn]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 296)
+Related violations: <none>
+
+XDCH-2#2 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[0]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#3 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[10]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#4 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[11]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#5 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[12]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#6 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[13]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#7 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[14]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#8 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[15]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#9 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[16]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#10 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[17]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#11 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[18]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#12 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[19]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#13 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[1]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#14 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[20]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#15 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[21]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#16 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[22]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#17 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[23]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#18 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[24]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#19 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[25]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#20 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[26]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#21 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[27]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#22 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[28]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#23 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[29]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#24 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[2]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#25 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[30]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#26 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[31]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#27 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[3]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#28 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[4]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#29 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[5]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#30 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[6]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#31 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[7]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#32 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[8]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#33 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'base_ram_data[9]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 293)
+Related violations: <none>
+
+XDCH-2#34 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[0]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#35 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[10]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#36 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[11]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#37 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[12]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#38 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[13]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#39 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[14]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#40 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[15]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#41 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[16]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#42 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[17]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#43 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[18]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#44 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[19]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#45 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[1]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#46 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[20]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#47 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[21]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#48 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[22]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#49 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[23]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#50 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[24]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#51 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[25]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#52 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[26]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#53 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[27]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#54 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[28]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#55 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[29]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#56 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[2]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#57 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[30]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#58 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[31]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#59 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[3]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#60 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[4]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#61 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[5]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#62 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[6]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#63 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[7]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#64 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[8]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#65 Warning
+Same min and max delay values on IO port  
+The same input delay of 3.000 ns has been defined on port 'ext_ram_data[9]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 294)
+Related violations: <none>
+
+XDCH-2#66 Warning
+Same min and max delay values on IO port  
+The same input delay of 5.000 ns has been defined on port 'rxd' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_input_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 5.000 [get_ports rxd]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 290)
+Related violations: <none>
+
+XDCH-2#67 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[0]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#68 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[10]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#69 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[11]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#70 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[12]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#71 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[13]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#72 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[14]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#73 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[15]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#74 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[16]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#75 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[17]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#76 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[18]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#77 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[19]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#78 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[1]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#79 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[2]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#80 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[3]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#81 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[4]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#82 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[5]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#83 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[6]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#84 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[7]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#85 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[8]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#86 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_addr[9]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 298)
+Related violations: <none>
+
+XDCH-2#87 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_be_n[0]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_be_n[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 299)
+Related violations: <none>
+
+XDCH-2#88 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_be_n[1]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_be_n[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 299)
+Related violations: <none>
+
+XDCH-2#89 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_be_n[2]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_be_n[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 299)
+Related violations: <none>
+
+XDCH-2#90 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_be_n[3]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_be_n[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 299)
+Related violations: <none>
+
+XDCH-2#91 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[0]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#92 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[10]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#93 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[11]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#94 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[12]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#95 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[13]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#96 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[14]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#97 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[15]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#98 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[16]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#99 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[17]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#100 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[18]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#101 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[19]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#102 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[1]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#103 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[20]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#104 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[21]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#105 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[22]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#106 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[23]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#107 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[24]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#108 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[25]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#109 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[26]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#110 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[27]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#111 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[28]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#112 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[29]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#113 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[2]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#114 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[30]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#115 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[31]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#116 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[3]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#117 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[4]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#118 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[5]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#119 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[6]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#120 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[7]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#121 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[8]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#122 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_data[9]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {base_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 300)
+Related violations: <none>
+
+XDCH-2#123 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_oe_n' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports base_ram_oe_n]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 301)
+Related violations: <none>
+
+XDCH-2#124 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'base_ram_we_n' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports base_ram_we_n]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 302)
+Related violations: <none>
+
+XDCH-2#125 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[0]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#126 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[10]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#127 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[11]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#128 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[12]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#129 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[13]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#130 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[14]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#131 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[15]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#132 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[16]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#133 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[17]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#134 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[18]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#135 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[19]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#136 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[1]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#137 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[2]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#138 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[3]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#139 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[4]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#140 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[5]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#141 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[6]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#142 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[7]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#143 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[8]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#144 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_addr[9]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_addr[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 303)
+Related violations: <none>
+
+XDCH-2#145 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_be_n[0]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_be_n[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 304)
+Related violations: <none>
+
+XDCH-2#146 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_be_n[1]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_be_n[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 304)
+Related violations: <none>
+
+XDCH-2#147 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_be_n[2]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_be_n[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 304)
+Related violations: <none>
+
+XDCH-2#148 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_be_n[3]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_be_n[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 304)
+Related violations: <none>
+
+XDCH-2#149 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_ce_n' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports ext_ram_ce_n]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 308)
+Related violations: <none>
+
+XDCH-2#150 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[0]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#151 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[10]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#152 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[11]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#153 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[12]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#154 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[13]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#155 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[14]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#156 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[15]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#157 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[16]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#158 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[17]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#159 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[18]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#160 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[19]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#161 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[1]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#162 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[20]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#163 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[21]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#164 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[22]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#165 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[23]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#166 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[24]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#167 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[25]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#168 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[26]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#169 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[27]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#170 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[28]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#171 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[29]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#172 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[2]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#173 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[30]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#174 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[31]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#175 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[3]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#176 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[4]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#177 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[5]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#178 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[6]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#179 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[7]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#180 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[8]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#181 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_data[9]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {ext_ram_data[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 305)
+Related violations: <none>
+
+XDCH-2#182 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_oe_n' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports ext_ram_oe_n]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 306)
+Related violations: <none>
+
+XDCH-2#183 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'ext_ram_we_n' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports ext_ram_we_n]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 307)
+Related violations: <none>
+
+XDCH-2#184 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[0]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#185 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[10]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#186 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[11]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#187 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[12]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#188 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[13]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#189 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[14]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#190 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[15]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#191 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[1]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#192 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[2]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#193 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[3]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#194 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[4]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#195 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[5]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#196 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[6]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#197 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[7]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#198 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[8]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#199 Warning
+Same min and max delay values on IO port  
+The same output delay of 3.000 ns has been defined on port 'leds[9]' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 3.000 [get_ports {leds[*]}]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 309)
+Related violations: <none>
+
+XDCH-2#200 Warning
+Same min and max delay values on IO port  
+The same output delay of 5.000 ns has been defined on port 'txd' relative to clock clk_out1_pll_example for both max and min. Make sure this reflects the design intent.
+set_output_delay -clock [get_clocks -of_objects [get_pins clock_gen/clk_out1]] 5.000 [get_ports txd]
+E:/LONGXIN/nscscc2023_mips_v2.0/2023323/thinpad_top.srcs/constrs_1/new/thinpad_top.xdc (Line: 291)
 Related violations: <none>
 
 

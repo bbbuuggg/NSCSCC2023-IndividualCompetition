@@ -34,12 +34,6 @@
 `define SerialFlag 32'hBFD003FC
 
 //ЦёБо
-`define ZeroReg 4'b0000
-`define ex_reg  4'b0001
-`define mem_reg 4'b0010
-`define regfile 4'b0100
-`define imm 4'b1000
-
 `define EXE_AND  6'b100100
 `define EXE_OR   6'b100101
 `define EXE_XOR 6'b100110
